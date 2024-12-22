@@ -9,7 +9,7 @@
     
     <title>
         
-            歸檔: 2024 |
+            【閒聊】把「檔案列表與比對工具」丟上 GitHub |
         
         Chuan&#39;s Notesite
     </title>
@@ -91,7 +91,7 @@
                         </li>
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/blog/archives">
                                 
                                     <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
@@ -170,7 +170,7 @@
                 </li>
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/archives">
                             
@@ -248,45 +248,216 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="archives-container">
-        <div class="archives-timeline border-box">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2024</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">12-22</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/blog/2024/ramble-FileListingAndComparing-init/"
-                        >【閒聊】把「檔案列表與比對工具」丟上 GitHub</a>
-                    </li>
+                    <div class="post-title">
+                        【閒聊】把「檔案列表與比對工具」丟上 GitHub
+                    </div>
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">12-16</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/blog/2024/tips-hexo-init/"
-                        >【筆記：Hexo】建立 Hexo 部落格</a>
-                    </li>
+
                 
-            </ul>
-        </section>
+                    <div class="post-header border-box">
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Chuan</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024/12/22 23:48</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon Dec 23 2024 00:46:44 GMT+0800">2024/12/23 00:46</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/blog/categories/%E9%96%92%E8%81%8A/">閒聊</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7/">檔案列表與比對工具</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>　　寫了一個自己要用的小工具——「檔案列表與比對工具」，作為作品集、丟上 GitHub 好了……不過這樣就必須要把很多地方改善了 www。</p>
+<span id="more"></span>
+<br>
+
+<h2 id="檔案列表與比對工具"><a href="#檔案列表與比對工具" class="headerlink" title="檔案列表與比對工具"></a>檔案列表與比對工具</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/chuan13/FileListingAndComparing" >GitHub repo<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/chuan13/FileListingAndComparing/tree/62663913e3bbb35c361bc1b34a1a122e13140ae5" >目前進度<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h3 id="開發動機"><a href="#開發動機" class="headerlink" title="開發動機"></a>開發動機</h3><p>　　最近和家人在整理家裡的檔案庫……，之前備份來、備份去，然後又改來改去，導致有些資料夾內大致相同、但應該有一點點不同。<br>　　人工找感覺好麻煩，於是想說來寫個程式把那些不共通的部分抓出來吧。</p>
+<h3 id="目前做到哪了？"><a href="#目前做到哪了？" class="headerlink" title="目前做到哪了？"></a>目前做到哪了？</h3><p>　　其實我是先開發了「列表」功能，本來想根據列出來的 txt 檔再做比對；但是後來做「比對」功能時，想說這樣反而要跑兩次 IO，不如在讀取資料夾內資訊時順便搞定。  </p>
+<p>　　剛剛為了要丟上 GitHub，才開始開新專案（本來只是在自己的練習專案裡開個 package 寫），重新整理一下程式結構；想說「列表」功能乾脆等之後程式碼重構完再來整理好了，於是現在放上去的只有「比對」功能。</p>
+<h3 id="印象深刻的挑戰"><a href="#印象深刻的挑戰" class="headerlink" title="印象深刻的挑戰"></a>印象深刻的挑戰</h3><ul>
+<li><code>isDirectory()</code> 為 <code>true</code>、但是 <code>listFiles()</code> 的結果不是空陣列而是 <code>null</code>？<ul>
+<li>理論上，即使是空的資料夾，<code>listFiles()</code> 的回傳結果應該會是空陣列（<code>length</code> 為 <code>0</code>）、而不會是 <code>null</code></li>
+<li>發現是「$RECYCLE.BIN」這種系統資料夾……；好吧，記起來，要多做這種判斷。</li>
+</ul>
+</li>
+</ul>
+<h3 id="接下來想做什麼？"><a href="#接下來想做什麼？" class="headerlink" title="接下來想做什麼？"></a>接下來想做什麼？</h3><p>　　都寫在 <code>README.md</code> 的「待開發」了。</p>
+<ul>
+<li>想搬去其他電腦用，所以還是得做介面、打包</li>
+<li>如果能的話，也想做給家人使用——那樣肯定是要做 GUI 了。</li>
+<li><em>把輸出邏輯交給另一個執行緒</em>  <ul>
+<li>現在輸出成 txt 檔的實現方式是類似於把每一行東西放進一個 List 裡面，最後交給輸出 method 去跑 for-each</li>
+<li>後來想優化一些小地方，發現沒辦法即時寫入輸出檔……<ul>
+<li>想在程式一開始運行時就把時間記錄下來，這樣才能知道這次比對共跑了多久</li>
+<li>如果有發生錯誤，像是無法讀取等等，也想寫進輸出檔、類似 log 的概念</li>
+</ul>
+</li>
+<li>如何實現？<ul>
+<li>問 ChatGPT、得知了 <code>BlockingQueue</code> 這個好東西，就像是 Message Queue 的概念</li>
+<li>實作還有分 <code>ArrayBlockingQueue</code> 和 <code>LinkedBlockingQueue</code><ul>
+<li>不過不像 List 那樣、在增刪時會有時間複雜度的差距，在這裡都是 O(1)<ul>
+<li><code>ArrayBlockingQueue</code> 以「Circular Array」實現，並有兩個索引指針分別指向頭尾兩端</li>
+<li><code>LinkedBlockingQueue</code> 以雙向鏈表實現，每個元素會包含上一個元素和下一個元素的指標；也有兩個索引指針分別指向頭尾兩端</li>
+</ul>
+</li>
+<li>比較<ul>
+<li><code>ArrayBlockingQueue</code><ul>
+<li>必須在宣告時固定大小，如果內容已滿、會導致 Producer 阻塞</li>
+</ul>
+</li>
+<li><code>LinkedBlockingQueue</code><ul>
+<li>因為是鏈表、占用記憶體會較大一點點</li>
+<li>可以不固定大小，就不用怕 Producer 速度較快、被阻塞</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7/">檔案列表與比對工具</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/blog/2024/tips-hexo-init/"
+                                   title="【筆記：Hexo】建立 Hexo 部落格"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Hexo】建立 Hexo 部落格</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7"><span class="nav-text">檔案列表與比對工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E7%99%BC%E5%8B%95%E6%A9%9F"><span class="nav-text">開發動機</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%81%9A%E5%88%B0%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-text">目前做到哪了？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E6%8C%91%E6%88%B0"><span class="nav-text">印象深刻的挑戰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%E6%83%B3%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">接下來想做什麼？</span></a></li></ol></li></ol>
     </div>
-    
+</div>
 
-
-
+            </div>
+        
+    </div>
 </div>
 
 
@@ -320,6 +491,31 @@
 
     <!-- post tools -->
     
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
 
     <!-- side tools -->
     <div class="side-tools">
@@ -346,6 +542,10 @@
     </ul>
 
     <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
         
 
         
@@ -374,8 +574,18 @@
 
     <!-- tablet toc -->
     
-</main>
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7"><span class="nav-text">檔案列表與比對工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E7%99%BC%E5%8B%95%E6%A9%9F"><span class="nav-text">開發動機</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%81%9A%E5%88%B0%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-text">目前做到哪了？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E6%8C%91%E6%88%B0"><span class="nav-text">印象深刻的挑戰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%E6%83%B3%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">接下來想做什麼？</span></a></li></ol></li></ol>
+    </div>
+</div>
 
+            </div>
+        </div>
+    
+</main>
 
 
 
@@ -409,6 +619,24 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/blog/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/blog/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->
