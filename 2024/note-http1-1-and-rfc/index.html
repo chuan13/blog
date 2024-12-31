@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo, blog, 部落格">
+    <meta name="keywords" content="網路, HTTP">
     <meta name="description" content=" ">
     <meta name="author" content="Chuan">
     
     <title>
         
-            【教學：Hexo】建立 Hexo 部落格（施工中） |
+            【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件 |
         
         Chuan&#39;s Notesite
     </title>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【教學：Hexo】建立 Hexo 部落格（施工中）
+                        【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024/12/16 23:43</span>
+                <span class="datetime">2024/12/31 15:32</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Dec 31 2024 15:35:07 GMT+0800">2024/12/31 15:35</span>
+                    <span class="datetime" data-updated="Tue Dec 31 2024 17:23:16 GMT+0800">2024/12/31 17:23</span>
                 </span>
             
         
@@ -294,10 +294,10 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/blog/categories/tips/">教學</a></li>
+                            <li class="category-item"><a href="/blog/categories/note/">筆記</a></li>
                         
                     
-                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/tips/Hexo/">Hexo</a></li>
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/%E7%B6%B2%E8%B7%AF/">網路</a></li>
                         
                     
                 </ul>
@@ -308,7 +308,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Hexo/">Hexo</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/%E7%B6%B2%E8%B7%AF/">網路</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/HTTP/">HTTP</a></li>
                         
                     
                 </ul>
@@ -333,51 +336,111 @@
                     
 
                     
-                         <p>　　從頭開始建立 Hexo 部落格。</p>
+                         <p>　　記錄一下自己從 RFC 2616 文件出發探索、學到了什麼。</p>
 <span id="more"></span>
 <br>
 
-<h2 id="建議參考資料"><a href="#建議參考資料" class="headerlink" title="建議參考資料"></a>建議參考資料</h2><ul>
-<li>Hexo 官方文件<br>  <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/" >文件 | Hexo<i class="fas fa-external-link-alt"></i></a><ul>
-<li>有「正體中文」選項，雖然翻譯不完全、不過還是可以加減看。</li>
+<h2 id="什麼是-RFC-文件？"><a href="#什麼是-RFC-文件？" class="headerlink" title="什麼是 RFC 文件？"></a>什麼是 RFC 文件？</h2><ul>
+<li>由 IETF（網際網路工程任務組，Internet Engineering Task Force）發布的文檔，包含許多與網際網路相關的資訊，也包含通訊協定的標準</li>
+<li>每篇 RFC 文件都有編號</li>
+<li>可在 <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/" >RFC Editor<i class="fas fa-external-link-alt"></i></a> 查看每篇 RFC 文件</li>
+<li>status<ul>
+<li>Standard<ul>
+<li>正式標準的發展階段。</li>
+<li>依序有「Proposed Standard」、「Draft Standard」、「Internet Standard」，越趨完善</li>
+</ul>
+</li>
+<li>Experimental<ul>
+<li>仍於實驗階段</li>
+</ul>
+</li>
+<li>Informational<ul>
+<li>並非技術或協定標準、而是資訊性內容</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <br>
 
-<h2 id="建立-Hexo-部落格"><a href="#建立-Hexo-部落格" class="headerlink" title="建立 Hexo 部落格"></a>建立 Hexo 部落格</h2><h3 id="1-初始化-Hexo-資料夾"><a href="#1-初始化-Hexo-資料夾" class="headerlink" title="1. 初始化 Hexo 資料夾"></a>1. 初始化 Hexo 資料夾</h3><ol>
-<li>確認已安裝 Node.js、Git</li>
-<li>開啟 Git Bash，透過 npm 安裝「hexo-cli」 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以再次確認是否已成功安裝「hexo-cli」，如果有顯示許多版本訊息、代表有成功安裝。  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure></li>
+<h2 id="什麼是-HTTP？"><a href="#什麼是-HTTP？" class="headerlink" title="什麼是 HTTP？"></a>什麼是 HTTP？</h2><ul>
+<li>HTTP 的全名是「HyperText Transfer Protocol」</li>
+<li>這是一種網路通訊協定（protocal）<ul>
+<li>在網路七層模型（OSI）中，屬於第七層「應用層（Application Layer）」</li>
 </ul>
 </li>
-<li>在想要的地方建立一個空資料夾，作為 Hexo 資料夾</li>
-<li>在此開啟 Git Bash、初始化 Hexo <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></li>
-<li>透過 npm 安裝 dependencies 到此專案 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="2-設置-config-yml"><a href="#2-設置-config-yml" class="headerlink" title="2. 設置 _config.yml"></a>2. 設置 _config.yml</h3><ul>
-<li>Site  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Chuan&#x27;s</span> <span class="string">Notesite</span>  <span class="comment"># 網站標題</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>  <span class="comment"># 網站副標題</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27; &#x27;</span>  <span class="comment"># 網站敘述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">programming,</span> <span class="string">tech,</span> <span class="string">程式,</span> <span class="string">技術</span>  <span class="comment"># 網站關鍵字</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Chuan</span>  <span class="comment"># 網站作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-TW</span>  <span class="comment"># 網站語言，`zh-TW` 是「中文 - 台灣」</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Taipei</span>  <span class="comment"># 網站時區，`Asia/Taipei` 是台北時區（UTF+8）</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>keywords</code>：這裡填寫的字串，會變成每個網頁的 <code>meta</code>「keyword」元素。  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;programming, tech, 程式, 技術&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>這個 <code>meta</code> 元素會影響 SEO；但是我不曉得具體如何影響。</li>
-<li>「每個網頁」都會套用；<br>  如果想要設置個別文章的 keywords，要在該篇的 front-matter 自行加上 <code>keywords</code> 欄位填寫、並且會覆蓋掉這裡設置的內容。</li>
-</ul>
-</li>
-<li><code>language</code>：語言代碼<ul>
-<li>設定每個網頁 <code>html</code> 元素的 <code>lang</code> 屬性。  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-TW&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>如果選用的主題有支持，也會跟著改變介面的顯示語言。</li>
-</ul>
-</li>
-<li><code>timezone</code>：時區<ul>
-<li>根據 <a class="link"   target="_blank" rel="noopener" href="https://www.iana.org/time-zones" >IANA Time Zone Database<i class="fas fa-external-link-alt"></i></a> 標準格式。</li>
-</ul>
-</li>
+<li>HTTP 是網路瀏覽器中最常使用的基礎通訊協定<ul>
+<li>補充：HTTPS 是 HTTP 加上 SSL／TLS 加密，是目前要求較高安全性時主流使用的通訊協定</li>
+<li>補充：其他常見的通訊協定還有 FTP、WebSocket 等等</li>
 </ul>
 </li>
 </ul>
 <br>
+
+<h2 id="HTTP-的版本"><a href="#HTTP-的版本" class="headerlink" title="HTTP 的版本"></a>HTTP 的版本</h2><ul>
+<li>1.1<ul>
+<li>HTTP 中目前最主流、基礎的版本，網站伺服器、網頁瀏覽器都支持</li>
+<li>1999 年成為正式標準</li>
+<li>RFC 標準文件<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+<li>2014 年，RFC 7230 ~ 7235 取代了 RFC 2616<ul>
+<li>拆分為多篇，做更詳細的說明</li>
+<li>也有一些更新</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2<ul>
+<li>於 2015 年的 <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc7540" >RFC 7540<i class="fas fa-external-link-alt"></i></a> 發布、成為標準</li>
+<li>改善性能</li>
+</ul>
+</li>
+<li>3<ul>
+<li>於 2022 年的 <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9114" >RFC 9114<i class="fas fa-external-link-alt"></i></a> 發布、成為標準</li>
+<li>進一步改善性能與安全性</li>
+<li>基於 QUIC</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="推薦學習資源"><a href="#推薦學習資源" class="headerlink" title="推薦學習資源"></a>推薦學習資源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://notfalse.net/http-series">NotFalse 技術客<br>HTTP 教學</a><ul>
+<li>易讀、基礎，涵蓋許多方面</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/schaepher/p/12831623.html">schaepher - 博客园<br>【RFC】HTTP&#x2F;1.1 系列（7230 - 7235）</a><ul>
+<li>翻譯為簡中和加上一些理解說明</li>
+<li>目前只寫到 RFC 7231 的 Response Status Codes，但還是值得把在此之前的東西看過、學起來</li>
+</ul>
+</li>
+<li>RFC 7230 ~ 7235<ul>
+<li>雖然很硬……，但如果能吸收，直接去讀標準文件最紮實</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li>ChatGPT</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://notfalse.net/33/http1_1" >HTTP&#x2F;1.1 - 超文本傳輸協定 (Hypertext Transfer Protocol) - NotFalse 技術客<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/schaepher/p/12831623.html" >【RFC】HTTP&#x2F;1.1 系列（7230 - 7235） - schaepher - 博客园<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://blog.gslin.org/archives/2014/06/07/4736/http1-1-%E7%9A%84%E6%9B%B4%E6%96%B0/" >HTTP&#x2F;1.1 的更新 – Gea-Suan Lin’s BLOG<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://hackmd.io/@cnsrl/RFC" >如何閱讀 RFC 文件 - HackMD<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/@chester.yw.chu/http-3-%E5%82%B3%E8%BC%B8%E5%8D%94%E8%AD%B0-quic-%E7%B0%A1%E4%BB%8B-5f8806d6c8cd" >HTTP&#x2F;3 傳輸協議 - QUIC 原理簡介 | by Chester Chu | Medium<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://aws.amazon.com/tw/compare/the-difference-between-ssl-and-tls/" >SSL 與 TLS 的比較 – 通訊協定之間的差異 – AWS<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<h2 id="後記閒聊"><a href="#後記閒聊" class="headerlink" title="後記閒聊"></a>後記閒聊</h2><p>　　某次面試遇到一位面試官、是技術主管，拿著我的考卷一題一題問我為何這樣作答、延伸再問一些問題、並告訴我哪邊有錯或是可以再設計得更好。那次學到了許多技術知識、也得到一些學習方向的想法，滿喜歡那樣的氛圍、很感謝他。<br>　　延伸的問題中，有一題是「Request Header 中有什麼？」，我當時沒能答出「通訊協定（HTTP）」這個重點。之後我又寄了一封 email 感謝他、並再向他請教這個問題，他還回信給我、分享了這個連結：<a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616#page-35" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a>，指向「Request」章節那頁。<br>　　感到非常感激，於是決定趁著這份心情、把這些探索整理成筆記。  </p>
+
                     
                 </div>
 
@@ -389,7 +452,11 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Hexo/">Hexo</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/%E7%B6%B2%E8%B7%AF/">網路</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/HTTP/">HTTP</a>
                                     </li>
                                 
                             </ul>
@@ -405,22 +472,22 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
                                    href="/blog/2024/ramble-FileListingAndComparing-init/"
                                    title="【閒聊】把「檔案列表與比對工具」丟上 GitHub"
                                 >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
                                     <span class="title flex-center">
                                         <span class="post-nav-title-item text-ellipsis">【閒聊】把「檔案列表與比對工具」丟上 GitHub</span>
-                                        <span class="post-nav-item">上一篇</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
                                     </span>
                                 </a>
                             </div>
-                        
                         
                     </div>
                 
@@ -441,7 +508,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">建議參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Hexo-%E9%83%A8%E8%90%BD%E6%A0%BC"><span class="nav-text">建立 Hexo 部落格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96-Hexo-%E8%B3%87%E6%96%99%E5%A4%BE"><span class="nav-text">1. 初始化 Hexo 資料夾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A8%AD%E7%BD%AE-config-yml"><span class="nav-text">2. 設置 _config.yml</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-RFC-%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-text">什麼是 RFC 文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP%EF%BC%9F"><span class="nav-text">什麼是 HTTP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">HTTP 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%96%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-text">推薦學習資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
     </div>
 </div>
 
@@ -572,7 +639,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">建議參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Hexo-%E9%83%A8%E8%90%BD%E6%A0%BC"><span class="nav-text">建立 Hexo 部落格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96-Hexo-%E8%B3%87%E6%96%99%E5%A4%BE"><span class="nav-text">1. 初始化 Hexo 資料夾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A8%AD%E7%BD%AE-config-yml"><span class="nav-text">2. 設置 _config.yml</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-RFC-%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-text">什麼是 RFC 文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP%EF%BC%9F"><span class="nav-text">什麼是 HTTP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">HTTP 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%96%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-text">推薦學習資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
     </div>
 </div>
 
