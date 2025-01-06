@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Spring, Controller">
+    <meta name="keywords" content="Spring, Spring Data JPA">
     <meta name="description" content=" ">
     <meta name="author" content="Chuan">
     
     <title>
         
-            【筆記．Spring】@Controller 做了哪些事？ |
+            【筆記：Spring Data JPA】Spring Data JPA 如何實作我寫的 repository interface？ |
         
         Chuan&#39;s Notesite
     </title>
@@ -35,7 +35,7 @@
     <script class="keep-theme-configurations">
     const KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"chuan13.github.io","root":"/blog/","language":"zh-TW"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#4040ff","title":"Chuan's Notesite","author":"Chuan","avatar":null,"logo":"/c-0000BF.png","favicon":"/c-0000BF.png"},"menu":{"home":"/ || fa-solid fa-home","archives":"/archives || fa-solid fa-box-archive","tags":"/tags || fa-solid fa-tags","categories":"/categories || fa-solid fa-layer-group","about":"/about || fa-solid fa-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY/MM/DD HH:mm","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2024,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"/blog","source_data":{},"version":"4.2.5"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#4040ff","title":"Chuan's Notesite","author":"Chuan","avatar":null,"logo":"/c-0000BF.png","favicon":"/c-0000BF.png"},"menu":{"home":"/ || fa-solid fa-home","archives":"/archives || fa-solid fa-box-archive","categories":"/categories || fa-solid fa-layer-group","tags":"/tags || fa-solid fa-tags","about":"/about || fa-solid fa-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY/MM/DD HH:mm","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2024,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"/blog","source_data":{},"version":"4.2.5"}
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分鐘前","hour":"%s 小時前","day":"%s 天前","week":"%s 周前","month":"%s 個月前","year":"%s 年前"}
     KEEP.language_code_block = {"copy":"複製代碼","copied":"已複製","fold":"折疊代碼塊","folded":"已折疊"}
     KEEP.language_copy_copyright = {"copy":"複製版權資訊","copied":"已複製","title":"原文標題","author":"原文作者","link":"原文連結"}
@@ -104,11 +104,11 @@
                     
                         
                         <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/blog/tags">
+                            <a class="menu-text-color border-box" href="/blog/categories">
                                 
-                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
                                 
-                                標籤
+                                分類
                                 
                             </a>
                             
@@ -116,11 +116,11 @@
                     
                         
                         <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/blog/categories">
+                            <a class="menu-text-color border-box" href="/blog/tags">
                                 
-                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
                                 
-                                分類
+                                標籤
                                 
                             </a>
                             
@@ -188,13 +188,13 @@
                 
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/tags">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/categories">
                             
                                 <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
                                 </span>
                             
-                            標籤
+                            分類
                         </a>
                         
                     </label>
@@ -204,13 +204,13 @@
                 
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/categories">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/tags">
                             
                                 <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
                                 </span>
                             
-                            分類
+                            標籤
                         </a>
                         
                     </label>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【筆記．Spring】@Controller 做了哪些事？
+                        【筆記：Spring Data JPA】Spring Data JPA 如何實作我寫的 repository interface？
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025/01/06 11:02</span>
+                <span class="datetime">2025/01/06 15:44</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Mon Jan 06 2025 11:02:09 GMT+0800">2025/01/06 11:02</span>
+                    <span class="datetime" data-updated="Mon Jan 06 2025 15:53:52 GMT+0800">2025/01/06 15:53</span>
                 </span>
             
         
@@ -297,7 +297,7 @@
                             <li class="category-item"><a href="/blog/categories/note/">筆記</a></li>
                         
                     
-                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/Spring/">Spring</a></li>
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/Spring-Data-JPA/">Spring Data JPA</a></li>
                         
                     
                 </ul>
@@ -309,6 +309,9 @@
                 <ul class="post-tag-ul">
                     
                             <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Spring/">Spring</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Spring-Data-JPA/">Spring Data JPA</a></li>
                         
                     
                 </ul>
@@ -333,38 +336,53 @@
                     
 
                     
-                         <p>　　Spring MVC 中最入門、最常使用的 annotation 就是 <code>@Controller</code> 了，它到底做了哪些事？</p>
+                         <p>　　這只是個 interface 啊，它怎麼執行起來的？！</p>
 <span id="more"></span>
 <br>
 
-<h2 id="Controller-做了哪些事？"><a href="#Controller-做了哪些事？" class="headerlink" title="@Controller 做了哪些事？"></a>@Controller 做了哪些事？</h2><h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3><p>　　原始碼中有寫上 <code>@Component</code>，所以也會成為 Spring 框架 IoC 容器管理的 Bean。</p>
-<h3 id="處理-HTTP-request"><a href="#處理-HTTP-request" class="headerlink" title="處理 HTTP request"></a>處理 HTTP request</h3><p>　　搭配 <code>@RequestMapping</code>、<code>@GetMapping</code> 系列等等 annotation，把發送來的 request 轉給對應的 method 處理。</p>
-<p>　　運作原理：</p>
-<ul>
-<li>HandlerMapping 會掃描所有有寫 <code>@Controller</code> 的 Bean，把「哪個 URL pattern 對應到哪個 class 的哪個 method 處理」記錄下來</li>
-<li>DispatherServlet 在接收到 request 時，查找 HandlerMapping 的記錄、找到後交由 HandlerAdapter 去實際呼叫該 method 執行</li>
-</ul>
-<h3 id="response-html-檔"><a href="#response-html-檔" class="headerlink" title="response html 檔"></a>response html 檔</h3><p>　　return 字串、帶著含資料的 Model，進行後續處理、最後回傳給 client 一個 html 檔。</p>
-<p>　　運作原理：</p>
-<ul>
-<li>把 return 的字串和 method 裡處理的 Model 結合為 ModelAndView</li>
-<li>回傳給 HandlerAdapter 和 DispatherServlet</li>
-<li>轉交給 ViewResolver 去尋找對應模板</li>
-<li>轉交給 View 渲染，完成最後的 html 檔</li>
-<li>response 給 client</li>
-</ul>
+<h2 id="複習一下-interface"><a href="#複習一下-interface" class="headerlink" title="複習一下 interface"></a>複習一下 interface</h2><p>　　interface（介面），像是規格書、定義出該要有哪些 method；由 implement 它的 class（實作類別）去 override 這些 method、並把內容完成。</p>
+<p>　　舉個例子，「List」是 interface、定義要有 <code>add()</code> 這個 method；而「ArrayList」和「LinkedList」implement 此 interface，分別用不同的實作方式實現了 <code>add()</code> 這個 method 所要有的功能。</p>
+<p>　　interface 是不能用 <code>new</code> 產生出物件實例的，它只是規格書、不是藍圖；所以，當我們在 Spring Boot 的一個 Service class 裡注入了一個 Repository，它一定有一個實作的 class 本體……對吧？</p>
 <br>
 
-<h2 id="好朋友：-RestController"><a href="#好朋友：-RestController" class="headerlink" title="好朋友：@RestController"></a>好朋友：@RestController</h2><p>　　response 的不是 html 檔、而是 json 或 xml 格式的資料。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>　　我有個 Entity class 名為 <code>Game</code>，並其 primary key 的型別為 <code>Integer</code>，因此我寫了一個 interface、繼承 Spring Data JPA 的 <code>JpaRepository</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">GameRepo</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;Game, Integer&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　只有寫這樣，也沒有加上 <code>@Repository</code> annotation。</p>
+<p>　　在 service class，用 constructor DI 注入了這個 interface 的 Bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GameService</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> GameRepo gameRepo;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">GameService</span><span class="params">(GameRepo gameRepo)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.gameRepo = gameRepo;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　這樣就能直接使用了 O.O ——我沒有自己寫實作 class 哦？！</p>
+<br>
+
+<h2 id="Spring-怎麼辦到的？——動態代理（Dynamic-Proxy）"><a href="#Spring-怎麼辦到的？——動態代理（Dynamic-Proxy）" class="headerlink" title="Spring 怎麼辦到的？——動態代理（Dynamic Proxy）"></a>Spring 怎麼辦到的？——動態代理（Dynamic Proxy）</h2><p>　　動態代理（Dynamic Proxy）是什麼？簡單來說，是在執行時動態地根據反射產生物件實例、而非根據寫好的 class 產生。</p>
+<p>　　當 Spring Boot Application 啟動，會掃描所有繼承了 <code>JpaRepository</code> 的 interface、利用動態代理產生代理物件實例，並作為 Bean 給我們使用。<br>　　所以，我們自己沒有寫實作 class、是 Spring 幫我們做了個代理給我們用；並且，這個代理類別已經包含 <code>@Repository</code> 的功能，所以不用在我們自己寫的 repository interface 上面寫。</p>
+<p>　　至於動態代理是怎麼實現的，還要先瞭解「反射」……就不在此細講了，因為我也還不是很懂。</p>
+<h2 id="怎麼知道它是代理？"><a href="#怎麼知道它是代理？" class="headerlink" title="怎麼知道它是代理？"></a>怎麼知道它是代理？</h2><p>　　對一個物件實例使用 <code>getClass()</code>，可以得到一個 Class 物件，裡面有許多方法、可以取得關於這個 class 的相關資訊，舉幾個常用的：</p>
+<ul>
+<li><code>getCanonicalName()</code>：完整的 class 名稱，包含完整 package 路徑</li>
+<li><code>getSimpleName()</code>：class 名稱，不包含 package</li>
+<li><code>getInterfaces()</code>：這個 class <code>implement</code> 的所有 interface，回傳值是 <code>Class&lt;?&gt;[]</code>、可以再進一步取得這些 interface 的資訊</li>
+<li><code>getMethods()</code>：這個 class 裡所有的 method，回傳值是 <code>Method[]</code>、可以透過 Method 物件進一步取得 method 名稱、參數、回傳值等資訊。</li>
+</ul>
+<p>　　所以，我對範例中注入進來的 <code>gameRepo</code> 物件實驗了一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">result.put(<span class="string">&quot;canonicalName&quot;</span>, gameRepo.getClass().getCanonicalName());</span><br><span class="line">result.put(<span class="string">&quot;interfaces&quot;</span>, gameRepo.getClass().getInterfaces());</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>　　回傳的結果是：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;canonicalName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jdk.proxy6.$Proxy134&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;interfaces&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;chuan13.playground.repository.GameRepo&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;org.springframework.data.repository.Repository&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;org.springframework.transaction.interceptor.TransactionalProxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;org.springframework.aop.framework.Advised&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;org.springframework.core.DecoratingProxy&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>　　嗯，的確是個 proxy，implement 了我自己寫的 <code>GameRepo</code> 這個 interface、還有許多其他的…… interface 們。</p>
+<p>　　要學的還很多呢 www</p>
 <br>
 
 <h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/zxd1435513775/article/details/103000992" >SpringMVC中HandlerMapping和HandlerAdapter详解（适配器模式）_handlermapping和handler adatper-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://b0444135.medium.com/java-%E4%BB%80%E9%BA%BC%E6%98%AF%E5%8F%8D%E5%B0%84-java%E9%81%8B%E8%A1%8C%E8%88%87%E5%8F%8D%E5%B0%84%E8%A7%80%E5%BF%B5-e53b6e2ee4f8" >[JAVA] 什麼是反射 ? JAVA運行與反射觀念 - KouWei.Lee - Medium<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://akuma1.pixnet.net/blog/post/230805886" >基礎訓練－－(06)JAVA Reflection（映射）與命名規則－台灣的Web工程師｜痞客邦<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://matthung0807.blogspot.com/2018/08/java-reflection.html" >菜鳥工程師 肉豬: Java Reflection（反射）簡單範例<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://hackmd.io/@SpringLearning/B1rlv-yo5" >動態代理 - HackMD<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://openhome.cc/Gossip/SpringGossip/DynamicProxy.html" >動態代理<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <br>
 
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/peinanwei__/article/details/136847763" >SpringMVC执行流程_springmvc中执行流程-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li>ChatGPT</li>
+<li>以上「延伸閱讀」資料</li>
 </ul>
 <br>
                     
@@ -379,6 +397,10 @@
                                 
                                     <li class="tag-item border-box">
                                         <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Spring/">Spring</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Spring-Data-JPA/">Spring Data JPA</a>
                                     </li>
                                 
                             </ul>
@@ -398,11 +420,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/blog/2025/ramble-news-backend-validation/"
-                                   title="【閒聊】新聞分享：記得做後端驗證"
+                                   href="/blog/2025/01/note-spring-controller/"
+                                   title="【筆記：Spring】@Controller 做了哪些事？"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【閒聊】新聞分享：記得做後端驗證</span>
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Spring】@Controller 做了哪些事？</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -430,7 +452,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller-%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%EF%BC%9F"><span class="nav-text">@Controller 做了哪些事？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Component"><span class="nav-text">@Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%95%E7%90%86-HTTP-request"><span class="nav-text">處理 HTTP request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-html-%E6%AA%94"><span class="nav-text">response html 檔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E6%9C%8B%E5%8F%8B%EF%BC%9A-RestController"><span class="nav-text">好朋友：@RestController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A4%87%E7%BF%92%E4%B8%80%E4%B8%8B-interface"><span class="nav-text">複習一下 interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-text">範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-%E6%80%8E%E9%BA%BC%E8%BE%A6%E5%88%B0%E7%9A%84%EF%BC%9F%E2%80%94%E2%80%94%E5%8B%95%E6%85%8B%E4%BB%A3%E7%90%86%EF%BC%88Dynamic-Proxy%EF%BC%89"><span class="nav-text">Spring 怎麼辦到的？——動態代理（Dynamic Proxy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E7%9F%A5%E9%81%93%E5%AE%83%E6%98%AF%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="nav-text">怎麼知道它是代理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
     </div>
 </div>
 
@@ -561,7 +583,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller-%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%EF%BC%9F"><span class="nav-text">@Controller 做了哪些事？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Component"><span class="nav-text">@Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%95%E7%90%86-HTTP-request"><span class="nav-text">處理 HTTP request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-html-%E6%AA%94"><span class="nav-text">response html 檔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E6%9C%8B%E5%8F%8B%EF%BC%9A-RestController"><span class="nav-text">好朋友：@RestController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A4%87%E7%BF%92%E4%B8%80%E4%B8%8B-interface"><span class="nav-text">複習一下 interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-text">範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-%E6%80%8E%E9%BA%BC%E8%BE%A6%E5%88%B0%E7%9A%84%EF%BC%9F%E2%80%94%E2%80%94%E5%8B%95%E6%85%8B%E4%BB%A3%E7%90%86%EF%BC%88Dynamic-Proxy%EF%BC%89"><span class="nav-text">Spring 怎麼辦到的？——動態代理（Dynamic Proxy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E7%9F%A5%E9%81%93%E5%AE%83%E6%98%AF%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="nav-text">怎麼知道它是代理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
     </div>
 </div>
 

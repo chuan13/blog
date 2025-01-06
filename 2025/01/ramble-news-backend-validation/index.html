@@ -9,7 +9,7 @@
     
     <title>
         
-            分類 |
+            【閒聊】新聞分享：記得做後端驗證 |
         
         Chuan&#39;s Notesite
     </title>
@@ -103,7 +103,7 @@
                         </li>
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/blog/categories">
                                 
                                     <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
@@ -186,7 +186,7 @@
                 </li>
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/blog/categories">
                             
@@ -248,13 +248,167 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="category-page-container">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        【閒聊】新聞分享：記得做後端驗證
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Chuan</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
         
-            <div class="category-list-content">
-                <ul class="site-all-category-list"><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/tips/">教學</a><span class="site-all-category-list-count">2</span><ul class="site-all-category-list-child"><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/tips/Hexo/">Hexo</a><span class="site-all-category-list-count">1</span></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/tips/%E7%92%B0%E5%A2%83/">環境</a><span class="site-all-category-list-count">1</span></li></ul></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/note/">筆記</a><span class="site-all-category-list-count">4</span><ul class="site-all-category-list-child"><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/note/AWS/">AWS</a><span class="site-all-category-list-count">1</span></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/note/Spring/">Spring</a><span class="site-all-category-list-count">1</span></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/note/Spring-Data-JPA/">Spring Data JPA</a><span class="site-all-category-list-count">1</span></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/note/%E7%B6%B2%E8%B7%AF/">網路</a><span class="site-all-category-list-count">1</span></li></ul></li><li class="site-all-category-list-item"><a class="site-all-category-list-link" href="/blog/categories/ramble/">閒聊</a><span class="site-all-category-list-count">2</span></li></ul>
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025/01/02 16:56</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Jan 02 2025 22:55:57 GMT+0800">2025/01/02 22:55</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/blog/categories/ramble/">閒聊</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>　　滑新聞時看到這則，沒做後端驗證，結果只要在瀏覽器的 DevTools 改一下、就能成功做到不應被許可的刪除動作。</p>
+<span id="more"></span>
+<br>
+<hr>
+<br>
+
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.ettoday.net/news/20250102/2884765.htm" >快訊／新北狡詐警用「瀏覽器開發功能」　詐12天休假下場曝<i class="fas fa-external-link-alt"></i></a>（來源：ETtoday新聞雲）  </p>
+<blockquote>
+<p>……利用公務電腦進入新北政府警察局治安治理決策資訊服務系統的請假系統，透過CHROME瀏覽器進入「請假資料查詢」功能，隨意選擇一筆請假紀錄後，按下F12啟用瀏覽器的開發人員模式，查看網頁程式碼，將「刪除」按鈕的程式碼中「disable&#x3D;”disabled”」指令刪除，使刪除功能啟用。</p>
+</blockquote>
+<p>　　即使前端有做輸入驗證，還是別忘了在後端再做一次哦。  </p>
+<br>
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/blog/2025/01/note-spring-controller/"
+                                   title="【筆記：Spring】@Controller 做了哪些事？"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Spring】@Controller 做了哪些事？</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/blog/2025/01/note-aws-ec2/"
+                                   title="【筆記：AWS】初探 AWS EC2 架設 Spring Boot Application"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：AWS】初探 AWS EC2 架設 Spring Boot Application</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
             </div>
+        </div>
+
         
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        
+    </div>
+</div>
+
+            </div>
         
     </div>
 </div>
@@ -290,6 +444,31 @@
 
     <!-- post tools -->
     
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
 
     <!-- side tools -->
     <div class="side-tools">
@@ -321,6 +500,10 @@
 
     <ul class="exposed-tools-list border-box">
         
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
 
         
 
@@ -347,6 +530,17 @@
     
 
     <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        
+    </div>
+</div>
+
+            </div>
+        </div>
     
 </main>
 
@@ -383,12 +577,26 @@
 
     <!-- post page -->
     
+        <!-- post-helper -->
+        
+<script src="/blog/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/blog/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
 
     <!-- categories page -->
-    
-        
-<script src="/blog/js/page/category-page.js"></script>
-
     
 
     <!-- links page -->
