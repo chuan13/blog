@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Spring Boot">
+    <meta name="keywords" content="Store Procedure, User-defined Function">
     <meta name="description" content=" ">
     <meta name="author" content="Chuan">
     
     <title>
         
-            【筆記：Spring Boot】建立一個 Spring Boot Application 的過程 |
+            【筆記：SQL】Store Procedure 與 User-defined Function |
         
         Chuan&#39;s Notesite
     </title>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【筆記：Spring Boot】建立一個 Spring Boot Application 的過程
+                        【筆記：SQL】Store Procedure 與 User-defined Function
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025/01/06 22:20</span>
+                <span class="datetime">2025/01/08 18:03</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Mon Jan 06 2025 22:38:03 GMT+0800">2025/01/06 22:38</span>
+                    <span class="datetime" data-updated="Wed Jan 08 2025 18:26:02 GMT+0800">2025/01/08 18:26</span>
                 </span>
             
         
@@ -297,7 +297,7 @@
                             <li class="category-item"><a href="/blog/categories/note/">筆記</a></li>
                         
                     
-                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/Spring-Boot/">Spring Boot</a></li>
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/SQL/">SQL</a></li>
                         
                     
                 </ul>
@@ -308,7 +308,13 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Spring-Boot/">Spring Boot</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Store-Procedure/">Store Procedure</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/User-defined-Function/">User-defined Function</a></li>
                         
                     
                 </ul>
@@ -333,112 +339,117 @@
                     
 
                     
-                         <p>　　發現自己沒有可以隨便試一些東西的 Spring Boot 專案……那就來開一個吧，順便把自己的過程與疑惑(?)記錄下來。</p>
+                         <p>　　SQL 裡的 Store Procedure 和 User-defined Function，有點像、又有點不一樣？</p>
 <span id="more"></span>
+
+<p>　　這篇以 Microsoft SQL Server 討論，有些東西可能在不同資料庫會不太一樣。</p>
 <br>
 
-<h2 id="1-建立專案"><a href="#1-建立專案" class="headerlink" title="1. 建立專案"></a>1. 建立專案</h2><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://start.spring.io/" >Spring Initializr<i class="fas fa-external-link-alt"></i></a><ul>
-<li>也可以用 Intellij IDEA、SpringToolSuite 或是 VSCode 等 IDE 裡的工具，不過我個人喜歡用官網上這個。</li>
+<h2 id="Store-Procedure"><a href="#Store-Procedure" class="headerlink" title="Store Procedure"></a>Store Procedure</h2><ul>
+<li>宣告方式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> my_procedure</span><br><span class="line">  <span class="variable">@param1</span> <span class="keyword">AS</span> <span class="type">INT</span>,</span><br><span class="line">  <span class="variable">@param2</span> <span class="keyword">AS</span> NVARCHAR(MAX),</span><br><span class="line">  <span class="variable">@param3</span> <span class="keyword">AS</span> <span class="type">DATE</span></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="comment">-- 內容</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure></li>
+<li>使用方式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> my_procedure</span><br><span class="line">  <span class="variable">@param1</span> <span class="operator">=</span> <span class="number">123</span>,</span><br><span class="line">  <span class="variable">@param2</span> <span class="operator">=</span> <span class="string">&#x27;a string&#x27;</span>,</span><br><span class="line">  <span class="variable">@param3</span> <span class="operator">=</span> <span class="string">&#x27;2025-01-08&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>內容<ul>
+<li>可以有一至多條 DML 指令</li>
+<li>可以有一至多條 SELECT 指令，如果有多條、會回傳多個 ResultSet</li>
 </ul>
 </li>
-<li>選擇選項<ul>
-<li>Project：Maven</li>
-<li>Language：Java</li>
-<li>Spring Boot（版本）：挑較新、不是 <code>SNAPSHOT</code> 的版本，目前是 3.4.1</li>
-<li>Project Metadata<ul>
-<li>Group：自己或公司的，package 上那一串<ul>
-<li>原則是公司網址的倒過來</li>
-<li>自己個人的……我還沒建立自己的域名，應該無所謂吧 www</li>
+<li>用途<ul>
+<li>把多個 SQL 指令包成一個 store procedure</li>
+<li>可以直接呼叫一次、做完裡面全部的事</li>
+<li>效能較一條一條執行高<ul>
+<li>因為 SQL Server 已經預先編譯、做好執行計劃</li>
 </ul>
 </li>
-<li>Artifact：這個 Application 的名稱</li>
-<li>Description：這個 Application 的說明</li>
-<li>Packaging：Jar</li>
-<li>Java：挑最新的 LTS，目前是 21</li>
-</ul>
-</li>
-<li>Dependencies<ul>
-<li>把需要用到的抓進來</li>
-<li>基礎<ul>
-<li>Spring Boot DevTools<ul>
-<li>存檔時重新加載、禁用快取等方便開發時使用的功能</li>
+<li>可以另外設定權限<ul>
+<li>比如，不讓普通使用者直接存取這張資料表，但可以透過這個 store procedure 修改這張表的部分內容</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>根據需求<ul>
-<li>Web<ul>
-<li>Spring Web</li>
-</ul>
-</li>
-<li>ORM<ul>
-<li>Spring Data JPA</li>
-</ul>
-</li>
-<li>資料庫 Driver<ul>
-<li>MS SQL Server Driver</li>
-</ul>
-</li>
-<li>網頁模板引擎<ul>
-<li>Thymeleaf</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>執行結果<ul>
+<li>就像直接執行這些指令一樣</li>
+<li>根據內容，可能是「幾條資料列受影響」、也可能是 ResultSet，也可能都有</li>
 </ul>
 </li>
 </ul>
 <br>
 
-<h2 id="2-匯入-IDE"><a href="#2-匯入-IDE" class="headerlink" title="2. 匯入 IDE"></a>2. 匯入 IDE</h2><ul>
-<li>選擇「匯入 Maven Project」</li>
-</ul>
-<br>
-
-<h2 id="3-設定資料庫"><a href="#3-設定資料庫" class="headerlink" title="3. 設定資料庫"></a>3. 設定資料庫</h2><ul>
-<li>準備好 login 資訊、資料庫和資料表<ul>
-<li>命名原則<ul>
-<li>資料表：複數，小寫 snake_case</li>
-<li>欄位：小寫 snake_case</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>在 application.properties 加入 Datasource 設定：<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.microsoft.sqlserver.jdbc.SQLServerDriver</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:sqlserver://localhost:1433;database=&lt;記得換上對應資料庫的名稱&gt;;encrypt=true;trustServerCertificate=true</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">&lt;使用者名稱&gt;</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">&lt;密碼&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 開發時可以加上，方便查看 Spring Data JPA 生成的 SQL 指令</span></span><br><span class="line"><span class="attr">spring.jpa.show-sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.format_sql</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="User-defined-Function"><a href="#User-defined-Function" class="headerlink" title="User-defined Function"></a>User-defined Function</h2><p>　　根據回傳值與過程，還有分三種：</p>
 <ul>
-<li>url 裡的「encrypt」指的是資料傳送是否加密；「trustServerCertificate」指的是是否信任憑證、若為 <code>false</code> 就要再做更多的驗證、也更安全——但是在自己玩的環境中就先免了吧。</li>
+<li>Scalar functions：回傳一個值</li>
+<li>Table-valued functions（TVF）<ul>
+<li>Inline table-valued function（ITVF）：回傳一張資料表，裡面只有一個 SELECT 指令</li>
+<li>Multi-statement table-valued function（MSTVF）：回傳一張資料表，這張資料表是經過多個指令組合出來的。</li>
 </ul>
 </li>
 </ul>
 <br>
 
-<h2 id="4-寫程式……"><a href="#4-寫程式……" class="headerlink" title="4. 寫程式……"></a>4. 寫程式……</h2><ul>
-<li>Entity<ul>
-<li>命名原則<ul>
-<li>class 名稱：大寫開頭的 CamelCase，單數</li>
-<li>屬性名稱：小寫開頭的 camelCase</li>
+<h3 id="Scalar-functions"><a href="#Scalar-functions" class="headerlink" title="Scalar functions"></a>Scalar functions</h3><ul>
+<li>宣告方式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> my_scalar_function(</span><br><span class="line">  <span class="variable">@param1</span> <span class="keyword">AS</span> <span class="type">INT</span>,</span><br><span class="line">  <span class="variable">@param2</span> <span class="keyword">AS</span> NVARCHAR(MAX),</span><br><span class="line">  <span class="variable">@param3</span> <span class="keyword">AS</span> <span class="type">DATE</span>)</span><br><span class="line"><span class="keyword">RETURNS</span> NVARCHAR(MAX)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="comment">-- 內容</span></span><br><span class="line">  <span class="keyword">RETURN</span> 單一個值</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure></li>
+<li>使用方式：作為一個值使用<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> my_scalar_function(<span class="number">123</span>, <span class="string">&#x27;a string&#x27;</span>, <span class="string">&#x27;2025-01-08&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">table</span>;</span><br></pre></td></tr></table></figure></li>
+<li>內容<ul>
+<li>不能有 DML 指令</li>
+<li>可以有 SELECT 指令和一些計算、流程控制等</li>
+<li>要 <code>RETURN</code> 一個值</li>
 </ul>
 </li>
-<li>記得加上 <code>@Table(name = &quot;snake_case&quot;)</code>、指定到資料庫裡命名原則不同的資料表</li>
-<li>不過屬性名稱沒關係，會自動對應到使用 snake_case 命名的欄位</li>
+<li>用途<ul>
+<li>轉換資料</li>
+<li>計算處理</li>
 </ul>
 </li>
-<li>Repository、Service、Controller……<ul>
-<li>RESTful API 命名原則：全小寫、以 <code>-</code> 分隔，複數</li>
+<li>執行結果<ul>
+<li>單一個值</li>
 </ul>
 </li>
 </ul>
 <br>
 
-<h2 id="5-打包"><a href="#5-打包" class="headerlink" title="5. 打包"></a>5. 打包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure>
-<p>　　這樣 target 資料夾下就會出現可執行的 jar 檔了。</p>
+<h3 id="Inline-table-valued-function（ITVF）"><a href="#Inline-table-valued-function（ITVF）" class="headerlink" title="Inline table-valued function（ITVF）"></a>Inline table-valued function（ITVF）</h3><ul>
+<li>宣告方式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> my_itvf(</span><br><span class="line">  <span class="variable">@param1</span> <span class="keyword">AS</span> <span class="type">INT</span>,</span><br><span class="line">  <span class="variable">@param2</span> <span class="keyword">AS</span> NVARCHAR(MAX),</span><br><span class="line">  <span class="variable">@param3</span> <span class="keyword">AS</span> <span class="type">DATE</span>)</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="keyword">TABLE</span></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">RETURN</span></span><br><span class="line">  <span class="comment">-- 一條 SELECT 指令</span></span><br></pre></td></tr></table></figure></li>
+<li>使用方式：在 FROM 子句裡作為一張資料表使用<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> my_itvf(<span class="number">123</span>, <span class="string">&#x27;a string&#x27;</span>, <span class="string">&#x27;2025-01-08&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>內容<ul>
+<li>只能有一條 SELECT 指令</li>
+</ul>
+</li>
+<li>用途<ul>
+<li>把複雜的 SELECT 指令包成一個函數，方便呼叫使用</li>
+</ul>
+</li>
+<li>執行結果<ul>
+<li>一張資料表</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="Multi-statement-table-valued-function（MSTVF）"><a href="#Multi-statement-table-valued-function（MSTVF）" class="headerlink" title="Multi-statement table-valued function（MSTVF）"></a>Multi-statement table-valued function（MSTVF）</h3><ul>
+<li>宣告方式<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> my_mstvf(</span><br><span class="line">  <span class="variable">@param1</span> <span class="keyword">AS</span> <span class="type">INT</span>,</span><br><span class="line">  <span class="variable">@param2</span> <span class="keyword">AS</span> NVARCHAR(MAX),</span><br><span class="line">  <span class="variable">@param3</span> <span class="keyword">AS</span> <span class="type">DATE</span>)</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="variable">@result</span> <span class="keyword">TABLE</span> (</span><br><span class="line">  column1 <span class="type">INT</span>,</span><br><span class="line">  column2 NVARCHAR(MAX),</span><br><span class="line">  column3 <span class="type">DATE</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="comment">-- 內容，要 INSERT 內容到 @result 裡面</span></span><br><span class="line">  <span class="keyword">RETURN</span>;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure></li>
+<li>使用方式：在 FROM 子句裡作為一張資料表使用<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> my_mstvf(<span class="number">123</span>, <span class="string">&#x27;a string&#x27;</span>, <span class="string">&#x27;2025-01-08&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>內容<ul>
+<li>可以有多條 DML 與 SELECT 指令</li>
+<li>要 INSERT 內容到 @result 裡面</li>
+</ul>
+</li>
+<li>用途<ul>
+<li>（可能有）做一些增刪改，最後回傳一個資料表</li>
+<li>包成一個函數，方便呼叫使用</li>
+</ul>
+</li>
+<li>執行結果<ul>
+<li>一張資料表</li>
+</ul>
+</li>
+</ul>
 <br>
 
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li>以前上課的講義</li>
 <li>ChatGPT</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.navicat.com/cht/company/aboutus/blog/1099-understanding-stored-procedures-and-functions-in-relational-databases.html" >了解關聯式資料庫的預存程序和函式<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/relational-databases/user-defined-functions/user-defined-functions?view=sql-server-ver16" >User-defined functions - SQL Server | Microsoft Learn<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/relational-databases/user-defined-functions/create-user-defined-functions-database-engine?view=sql-server-ver16" >Create User-defined Functions (Database Engine) - SQL Server | Microsoft Learn<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <br>
                     
@@ -452,7 +463,15 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Spring-Boot/">Spring Boot</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Store-Procedure/">Store Procedure</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/User-defined-Function/">User-defined Function</a>
                                     </li>
                                 
                             </ul>
@@ -468,31 +487,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/blog/2025/01/note-sql-store-procedure-function/"
-                                   title="【筆記：SQL】Store Procedure 與 User-defined Function"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【筆記：SQL】Store Procedure 與 User-defined Function</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/blog/2025/01/note-spring-data-jpa-implement/"
-                                   title="【筆記：Spring Data JPA】Spring Data JPA 如何實作我寫的 repository interface？"
+                                   href="/blog/2025/01/note-spring-boot-new-project/"
+                                   title="【筆記：Spring Boot】建立一個 Spring Boot Application 的過程"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【筆記：Spring Data JPA】Spring Data JPA 如何實作我寫的 repository interface？</span>
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Spring Boot】建立一個 Spring Boot Application 的過程</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -520,7 +523,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E5%B0%88%E6%A1%88"><span class="nav-text">1. 建立專案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8C%AF%E5%85%A5-IDE"><span class="nav-text">2. 匯入 IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A8%AD%E5%AE%9A%E8%B3%87%E6%96%99%E5%BA%AB"><span class="nav-text">3. 設定資料庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AF%AB%E7%A8%8B%E5%BC%8F%E2%80%A6%E2%80%A6"><span class="nav-text">4. 寫程式……</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%89%93%E5%8C%85"><span class="nav-text">5. 打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Store-Procedure"><span class="nav-text">Store Procedure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-defined-Function"><span class="nav-text">User-defined Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalar-functions"><span class="nav-text">Scalar functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inline-table-valued-function%EF%BC%88ITVF%EF%BC%89"><span class="nav-text">Inline table-valued function（ITVF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-statement-table-valued-function%EF%BC%88MSTVF%EF%BC%89"><span class="nav-text">Multi-statement table-valued function（MSTVF）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
     </div>
 </div>
 
@@ -651,7 +654,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E5%B0%88%E6%A1%88"><span class="nav-text">1. 建立專案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8C%AF%E5%85%A5-IDE"><span class="nav-text">2. 匯入 IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A8%AD%E5%AE%9A%E8%B3%87%E6%96%99%E5%BA%AB"><span class="nav-text">3. 設定資料庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AF%AB%E7%A8%8B%E5%BC%8F%E2%80%A6%E2%80%A6"><span class="nav-text">4. 寫程式……</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%89%93%E5%8C%85"><span class="nav-text">5. 打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Store-Procedure"><span class="nav-text">Store Procedure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-defined-Function"><span class="nav-text">User-defined Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalar-functions"><span class="nav-text">Scalar functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inline-table-valued-function%EF%BC%88ITVF%EF%BC%89"><span class="nav-text">Inline table-valued function（ITVF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-statement-table-valued-function%EF%BC%88MSTVF%EF%BC%89"><span class="nav-text">Multi-statement table-valued function（MSTVF）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol>
     </div>
 </div>
 
