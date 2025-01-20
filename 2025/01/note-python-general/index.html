@@ -9,7 +9,7 @@
     
     <title>
         
-            【筆記：Python】建立 Python 環境 |
+            【筆記：Python】對 Python 的初步認識 |
         
         Chuan&#39;s Notesite
     </title>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【筆記：Python】建立 Python 環境
+                        【筆記：Python】對 Python 的初步認識
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025/01/20 19:06</span>
+                <span class="datetime">2025/01/21 00:21</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Jan 21 2025 00:23:44 GMT+0800">2025/01/21 00:23</span>
+                    <span class="datetime" data-updated="Tue Jan 21 2025 00:25:08 GMT+0800">2025/01/21 00:25</span>
                 </span>
             
         
@@ -333,106 +333,130 @@
                     
 
                     
-                         <p>　　剛好遇到一件事要用 Python，這麼適合的機會、來安裝設置環境吧，並把過程記錄下來。</p>
+                         <p>　　久違地碰了一兩天 Python，記錄一些對它的初步認識。<br>　　滿多項的，但各項的篇幅都有點難獨立為一篇文章，於是一起整理在這篇。</p>
 <span id="more"></span>
 <br>
 
-<h2 id="安裝-Python-與-pip"><a href="#安裝-Python-與-pip" class="headerlink" title="安裝 Python 與 pip"></a>安裝 Python 與 pip</h2><ol>
-<li>去 Python 官網下載安裝檔<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.python.org/downloads/" >https://www.python.org/downloads/<i class="fas fa-external-link-alt"></i></a></li>
+<h2 id="Anaconda-是什麼？"><a href="#Anaconda-是什麼？" class="headerlink" title="Anaconda 是什麼？"></a>Anaconda 是什麼？</h2><ul>
+<li>Python 懶人包，只要安裝 Anaconda、就一併安裝了一堆常用的開發工具與套件</li>
+<li>也能透過它管理 Python 版本、虛擬環境</li>
+<li>但也因此日趨肥大，佔很多容量</li>
 </ul>
-</li>
-<li>執行安裝檔<ol>
-<li>第一步：Install Python 3.x.x (64-bit)<ul>
-<li>勾選［Install launcher for all users］<ul>
-<li>安裝給這個 Windows 系統上的所有使用者皆能使用。</li>
-</ul>
-</li>
-<li>勾選［Add python.exe to PATH］<ul>
-<li>能自動設定環境變數方便多了。</li>
-</ul>
-</li>
-<li>點擊［Customize installation］</li>
-</ul>
-</li>
-<li>第二步：Optional Features<ul>
-<li>勾選［pip］</li>
-<li>勾選［tcl&#x2F;tk and IDLE］<ul>
-<li>「tkinder」是 GUI library</li>
-<li>「IDLE」是內建的陽春 IDE</li>
-</ul>
-</li>
-<li>勾選［py launcher］、並勾選旁邊的［for all users］</li>
-<li>其餘看需求</li>
-</ul>
-</li>
-<li>第三步：Advanced Options<ul>
-<li>勾選［Install for all users］</li>
-<li>勾選［Associate files with Python］</li>
-<li>勾選［Create shorcuts for installed applications］</li>
-<li>其餘看需求</li>
-<li>設定安裝位置</li>
-</ul>
-</li>
-<li>安裝完成後<ul>
-<li>會問要不要［Disable path length limit］——「調整系統設定，取消 MAX_PATH 為 260 個字元的限制」<ul>
-<li>想想還是先不要好了，不然可能在開發環境沒問題、但部署時出事。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>測試是否安裝成功<ul>
-<li><code>python --version</code></li>
-<li><code>pip --version</code></li>
-</ul>
-</li>
-</ol>
 <br>
 
-<h2 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h2><ul>
-<li>安裝 extension：「Python」<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" >https://marketplace.visualstudio.com/items?itemName=ms-python.python<i class="fas fa-external-link-alt"></i></a></li>
+<h2 id="套件管理器：pip"><a href="#套件管理器：pip" class="headerlink" title="套件管理器：pip"></a>套件管理器：pip</h2><ul>
+<li>預設下載路徑在 <code>（Python 根目錄）\Lib\site-packages\</code></li>
+<li>為什麼在 Python 根目錄下、換版本就得另外下載？<ul>
+<li>在 <code>pip install</code> 時，會根據目前的 Python 版本尋找對應的套件版本，所以下載下來的不能跨版本使用</li>
+<li>這點和 Java 的 Maven 很不一樣<ul>
+<li>pom.xml 的 dependency 要指定版本，不指定的話會找最新版</li>
+<li>並不會根據目前使用的 Java 版本而使用不同的 library 版本</li>
+<li>我猜可能跟 Java 是編譯式、而 Python 是直譯式有關？</li>
 </ul>
 </li>
 </ul>
-<p>　　這樣只要遇到副檔名為 <code>py</code> 的檔案，就會自動辨識為 Python 程式檔，並在右上角會有個執行按鈕、點擊就會在終端機執行。</p>
+</li>
+</ul>
 <br>
 
-<h2 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a>Jupyter Notebook</h2><ul>
-<li>這是一個互動式的 Python 筆記工具，副檔名為 <code>ipynb</code><ul>
+<h2 id="Jupyter-Notebook-與-ipynb-檔是什麼？"><a href="#Jupyter-Notebook-與-ipynb-檔是什麼？" class="headerlink" title="Jupyter Notebook 與 ipynb 檔是什麼？"></a>Jupyter Notebook 與 ipynb 檔是什麼？</h2><ul>
+<li>這是一個互動式的 Python 筆記工具，副檔名為 <code>ipynb</code></li>
 <li>每個 cell 可以選用 code 或是 markdown</li>
 <li>每個 code cell 可以分別執行</li>
 <li>適合用於測試每段程式碼的結果、或是像抓資料等片段式的需求</li>
 <li>底層是 JSON 格式，會記錄每個 cell 的資訊，比如是哪一種、執行了幾次、執行結果為何等等。</li>
 <li>不用 <code>print()</code> 就能顯示變數的內容，甚至如 pandas 的 dataframe 還能以表格顯示。</li>
 </ul>
+<br>
+
+<h2 id="虛擬環境"><a href="#虛擬環境" class="headerlink" title="虛擬環境"></a>虛擬環境</h2><ul>
+<li>可以建立一個虛擬環境，裡面會有獨立的 Python、pip 下載目錄，就不會和本機環境衝突</li>
+<li>可以透過 CLI 建立、進入與退出虛擬環境</li>
+<li>VSCode 在 Python 模式下，點擊右下角的版本號那一格、上方就會跳出，可以方便地新增或切換虛擬環境</li>
+<li>建議在每個 Python 專案都使用獨立的虛擬環境</li>
+</ul>
+<br>
+
+<h2 id="語法不同"><a href="#語法不同" class="headerlink" title="語法不同"></a>語法不同</h2><ul>
+<li>沒有 <code>null</code>、而是 <code>None</code></li>
+<li>換行、縮排很重要</li>
+<li>以 <code>:</code> 加下行多一格縮排開啟下個階層，如 class、function 或 method、迴圈皆如此</li>
+</ul>
+<br>
+
+<h2 id="命名原則"><a href="#命名原則" class="headerlink" title="命名原則"></a>命名原則</h2><ul>
+<li>檔名、變數、function 名、method 名：snake_case</li>
+<li>常數：全大寫的 SNAKE_CASE</li>
+<li>class 名：CamelCase</li>
+<li>特殊的變數或 method 名：前後各兩個下底線，如 <code>__init__()</code></li>
+</ul>
+<br>
+
+<h2 id="GUI-套件"><a href="#GUI-套件" class="headerlink" title="GUI 套件"></a>GUI 套件</h2><ul>
+<li>Tkinter<ul>
+<li>Python 內建的（說是內建，要記得在安裝 Python 時勾選啦）</li>
+<li>滿陽春的，給我的感覺像 Java 的 Swing</li>
+</ul>
 </li>
-<li>安裝在 VSCode 的步驟<ul>
-<li>在終端機 <code>pip install jupyter</code></li>
-<li>在 VSCode 安裝 extension：「Jupyter」<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter" >https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter<i class="fas fa-external-link-alt"></i></a></li>
+<li>Gradio<ul>
+<li>網頁式的 GUI</li>
+<li>基本帶有一邊輸入欄位、一邊輸出結果</li>
+<li>常用於作為機器學習模型的互動介面</li>
 </ul>
 </li>
 </ul>
+<br>
+
+<h2 id="好用或有趣的套件"><a href="#好用或有趣的套件" class="headerlink" title="好用或有趣的套件"></a>好用或有趣的套件</h2><ul>
+<li>pandas<ul>
+<li>資料處理與分析用</li>
+<li>有 dataframe 型式的資料結構</li>
+</ul>
+</li>
+<li>chardet<ul>
+<li>自動判斷資料內容使用的編碼</li>
+<li>雖然不完全準確，不過還提供了「準確率」這個回傳值可參考</li>
+<li>我之前用 Java 寫編碼轉換工具就是缺這個啊……</li>
+</ul>
+</li>
+<li>requests<ul>
+<li>發送 HTTP 的 request、接收 response</li>
+<li>指定 URL、指定 method、帶 headers 和 body 等等都可以做到</li>
+</ul>
+</li>
+<li>BeautifulSoup<ul>
+<li>解析 HTML 或是 XML 格式的資料</li>
+</ul>
+</li>
+<li>Selenium<ul>
+<li>透過 Driver 自動操作瀏覽器</li>
+</ul>
 </li>
 </ul>
+<br>
+
+<h2 id="為什麼-Python-被推薦用於爬蟲？"><a href="#為什麼-Python-被推薦用於爬蟲？" class="headerlink" title="為什麼 Python 被推薦用於爬蟲？"></a>為什麼 Python 被推薦用於爬蟲？</h2><p>　　逛了一圈，我覺得相較於 Java，Python 在這方面的強項主要的原因在於「易寫易跑」以及「套件豐富」。  </p>
+<p>　　Python 本來就是直譯式腳本語言，可以單純地執行；甚至即使沒有 IDE，只用文字編輯器寫好、再進 cmd 執行都算方便。相對的，Java 要先寫個 class、再寫個 main method，寫完還要 compile、才能執行，的確步驟比較繁瑣。<br>　　另外，有了 Jupyter Notebook，試錯開發兼做筆記變得方便許多。</p>
+<p>　　而不曉得是因還是果，總之現在的 Python 生態系裡有許多好用的套件，request、BeautifulSoup、Selenium 等等使爬取網站上的資料簡單多了，另外還有 pandas 這樣的套件可以接續整理資料。<br>　　越來越多人使用 Python、社群越來越大後，網路上的分享和問答就會變多、進一步也有更多大神做更多好用的套件，形成良性的循環。  </p>
 <br>
 
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li>ChatGPT</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://itenhanceskills.medium.com/windows-11-%E5%AE%89%E8%A3%9D-python-44b64a06fd3d" >Windows 11 安裝 Python - IT 點技能 - Medium<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/@charming_rust_oyster_221/%E4%BD%BF%E7%94%A8-python-%E7%94%A2%E7%94%9F-jupyter-notebook-%E6%AA%94%E6%A1%88-%E7%AD%86%E8%A8%98-1-7bbe3601fe91" >使用 Python 產生 Jupyter Notebook 檔案 (筆記 1) | by 陳小痘 | Medium<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/seaniap/pandas%E5%9F%BA%E7%A4%8E%E4%BB%8B%E7%B4%B9-%E9%80%B2%E5%85%A5%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%9A%84%E9%A0%98%E5%9F%9F-be9894b3548" >[Python資料科學]pandas基礎介紹-進入資料科學的領域 - Python Everywhere -from Beginner to Advanced - Medium<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://steam.oxxostudio.tw/category/python/info/anaconda.html" >使用 Anaconda - Python 教學 | STEAM 教育學習網<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://dev.to/codemee/python-xu-ni-huan-jing-venv-nbg" >Python 虛擬環境–venv - DEV Community<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10260109" >Day 04 Python 進階 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://quantpass.org/python_name/" >Python 理財程式小技巧 – 超重要的 Python 推薦命名習慣 - 量化通 QuantPass<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10278264?sc=hot" >Day 23 : Tkinter-利用Python建立GUI(基本操作及佈局篇) - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/@yvontarbajo/%E9%BA%BB%E7%93%9C%E8%B5%B0%E5%85%A5%E9%AD%94%E6%B3%95%E4%B8%96%E7%95%8C-i-gradio-2e9705f2410e" >麻瓜走入魔法世界 I — Gradio. Gradio, present your ideas swiftly. | by Yvshih | Medium<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/python/third-party-modules/chardet/" >chardet - Python教程 - 廖雪峰的官方网站<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10271319" >【Day 09】- 大家都愛的 BeautifulSoup - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <br>
 
 <h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><ul>
-<li><a href="https://chuan13.github.io/blog/2025/01/note-python-environment/">【筆記：Python】建立 Python 環境 | Chuan’s Notesite</a></li>
+<li><a href="https://chuan13.github.io/blog/2025/01/note-python-general/">【筆記：Python】對 Python 的初步認識 | Chuan’s Notesite</a></li>
 </ul>
-<br>
-
-<h2 id="後記閒聊"><a href="#後記閒聊" class="headerlink" title="後記閒聊"></a>後記閒聊</h2><p>　　再次發現 Keep 主題在 ul 與 ol 夾雜使用時會有 bug……，之後來開個 issue 回報給作者好了。<br>　　其實有想過自己修，但研究了一下 hexo 產生的 html 檔、發現 html 沒問題，那問題可能在 css？那樣的話……感覺自己目前還沒那個功力能搞懂整個 hexo 與主題的機制。</p>
 <br>
                     
                 </div>
@@ -461,31 +485,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/blog/2025/01/note-python-general/"
-                                   title="【筆記：Python】對 Python 的初步認識"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【筆記：Python】對 Python 的初步認識</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/blog/2025/01/note-sql-store-procedure-function/"
-                                   title="【筆記：SQL】Store Procedure 與 User-defined Function"
+                                   href="/blog/2025/01/note-python-environment/"
+                                   title="【筆記：Python】建立 Python 環境"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【筆記：SQL】Store Procedure 與 User-defined Function</span>
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Python】建立 Python 環境</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -513,7 +521,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Python-%E8%88%87-pip"><span class="nav-text">安裝 Python 與 pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode"><span class="nav-text">VSCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook"><span class="nav-text">Jupyter Notebook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Anaconda 是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%9Apip"><span class="nav-text">套件管理器：pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook-%E8%88%87-ipynb-%E6%AA%94%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Jupyter Notebook 與 ipynb 檔是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83"><span class="nav-text">虛擬環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="nav-text">語法不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E5%8E%9F%E5%89%87"><span class="nav-text">命名原則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-%E5%A5%97%E4%BB%B6"><span class="nav-text">GUI 套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%94%A8%E6%88%96%E6%9C%89%E8%B6%A3%E7%9A%84%E5%A5%97%E4%BB%B6"><span class="nav-text">好用或有趣的套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC-Python-%E8%A2%AB%E6%8E%A8%E8%96%A6%E7%94%A8%E6%96%BC%E7%88%AC%E8%9F%B2%EF%BC%9F"><span class="nav-text">為什麼 Python 被推薦用於爬蟲？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li></ol>
     </div>
 </div>
 
@@ -644,7 +652,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Python-%E8%88%87-pip"><span class="nav-text">安裝 Python 與 pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode"><span class="nav-text">VSCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook"><span class="nav-text">Jupyter Notebook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Anaconda 是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%9Apip"><span class="nav-text">套件管理器：pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook-%E8%88%87-ipynb-%E6%AA%94%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Jupyter Notebook 與 ipynb 檔是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83"><span class="nav-text">虛擬環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="nav-text">語法不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E5%8E%9F%E5%89%87"><span class="nav-text">命名原則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-%E5%A5%97%E4%BB%B6"><span class="nav-text">GUI 套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%94%A8%E6%88%96%E6%9C%89%E8%B6%A3%E7%9A%84%E5%A5%97%E4%BB%B6"><span class="nav-text">好用或有趣的套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC-Python-%E8%A2%AB%E6%8E%A8%E8%96%A6%E7%94%A8%E6%96%BC%E7%88%AC%E8%9F%B2%EF%BC%9F"><span class="nav-text">為什麼 Python 被推薦用於爬蟲？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li></ol>
     </div>
 </div>
 
