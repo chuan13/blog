@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="網路, HTTP">
+    <meta name="keywords" content="Eclipse">
     <meta name="description" content=" ">
     <meta name="author" content="Chuan">
     
     <title>
         
-            【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件 |
+            【筆記：Eclipse】我的 Eclipse workspace 設定 |
         
         Chuan&#39;s Notesite
     </title>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件
+                        【筆記：Eclipse】我的 Eclipse workspace 設定
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024/12/31 15:32</span>
+                <span class="datetime">2025/01/24 23:58</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri Jan 24 2025 11:43:34 GMT+0800">2025/01/24 11:43</span>
+                    <span class="datetime" data-updated="Fri Jan 24 2025 23:58:46 GMT+0800">2025/01/24 23:58</span>
                 </span>
             
         
@@ -297,7 +297,7 @@
                             <li class="category-item"><a href="/blog/categories/note/">筆記</a></li>
                         
                     
-                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/%E7%B6%B2%E8%B7%AF/">網路</a></li>
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/blog/categories/note/Eclipse/">Eclipse</a></li>
                         
                     
                 </ul>
@@ -308,10 +308,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Web/">網路</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/HTTP/">HTTP</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Eclipse/">Eclipse</a></li>
                         
                     
                 </ul>
@@ -336,119 +333,115 @@
                     
 
                     
-                         <p>　　記錄一下自己從 RFC 2616 文件出發探索、學到了什麼。</p>
+                         <p>　　記錄一自己習慣的 Eclipse workspace 設定。</p>
 <span id="more"></span>
 <br>
 
-<h2 id="什麼是-RFC-文件？"><a href="#什麼是-RFC-文件？" class="headerlink" title="什麼是 RFC 文件？"></a>什麼是 RFC 文件？</h2><ul>
-<li>由 IETF（網際網路工程任務組，Internet Engineering Task Force）發布的文檔，包含許多與網際網路相關的資訊，也包含通訊協定的標準</li>
-<li>每篇 RFC 文件都有編號</li>
-<li>官方網站是 <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/" >RFC Editor<i class="fas fa-external-link-alt"></i></a>，可在此查看每篇 RFC 文件<ul>
-<li>有個非官方的網站 <a class="link"   target="_blank" rel="noopener" href="https://datatracker.ietf.org/" >IETF Datatracker<i class="fas fa-external-link-alt"></i></a>，整理了文件以及更多相關資訊，介面也比較漂亮一點</li>
+<h2 id="設定-Preference"><a href="#設定-Preference" class="headerlink" title="設定 Preference"></a>設定 Preference</h2><ul>
+<li>上方工具列的［Window］-&gt;［Preference］</li>
+</ul>
+<h3 id="暗色主題"><a href="#暗色主題" class="headerlink" title="暗色主題"></a>暗色主題</h3><ol>
+<li>左方［General］-&gt;［Apperance］</li>
+<li>勾選［Enable theming］</li>
+<li>「Theme」下拉選單選擇［Dark］</li>
+</ol>
+<h3 id="自動完成（Auto-Complete）"><a href="#自動完成（Auto-Complete）" class="headerlink" title="自動完成（Auto-Complete）"></a>自動完成（Auto-Complete）</h3><ol>
+<li>左方［Java］-&gt;［Editor］-&gt;［Content Assist］</li>
+<li>勾選「Insertion」中的［Disable insertion trigger except ‘Enter’］<ul>
+<li>設為只有『Enter』鍵會套用自動完成的內容，不然時常不曉得按了什麼就套用自動完成了。</li>
 </ul>
 </li>
-<li>status<ul>
-<li>Standard<ul>
-<li>正式標準的發展階段。</li>
-<li>依序有「Proposed Standard」、「Draft Standard」、「Internet Standard」，越趨完善</li>
+<li>「Auto Activation」裡的「Auto activation trigger for Java」，輸入 <code>._ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</code><ul>
+<li>只要輸入這些字元，都會跳出 Auto-Complete 功能。</li>
 </ul>
 </li>
-<li>Experimental<ul>
-<li>仍於實驗階段</li>
+</ol>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ol>
+<li>左方［Java］-&gt;［Installed JREs］</li>
+<li>勾選列表中想要的 JRE<ul>
+<li>若是沒有……<ol>
+<li>點擊右方的［Add…］</li>
+<li>在「JRE home」輸入 JDK 的根目錄<ul>
+<li>不要選擇「bin」資料夾，要選的是根目錄、裡面有 <code>bin</code>、<code>conf</code>、<code>lib</code> 等等資料夾的那一層。</li>
 </ul>
 </li>
-<li>Informational<ul>
-<li>並非技術或協定標準、而是資訊性內容</li>
-</ul>
+<li>在「JRE name」輸入能夠辨認這個 JRE 的名稱</li>
+<li>點擊［Finish］</li>
+</ol>
 </li>
 </ul>
 </li>
-</ul>
-<br>
-
-<h2 id="什麼是-HTTP？"><a href="#什麼是-HTTP？" class="headerlink" title="什麼是 HTTP？"></a>什麼是 HTTP？</h2><ul>
-<li>HTTP 的全名是「HyperText Transfer Protocol」</li>
-<li>這是一種網路通訊協定（protocal）<ul>
-<li>在網路七層模型（OSI）中，屬於第七層「應用層（Application Layer）」</li>
+<li>左方［Java］-&gt;［Compiler］</li>
+<li>「JDK Compilance」裡的「Compiler compliance level」，根據剛剛選擇的 JRE 與實際需求選擇對應的 Java 版本<ul>
+<li>這裡是選擇要以哪個 Java 版本進行 compile。</li>
+<li>這裡選擇的版本不能高於選擇的 JRE 的版本。</li>
 </ul>
 </li>
-<li>HTTP 是網路瀏覽器中最常使用的基礎通訊協定<ul>
-<li>補充：HTTPS 是 HTTP 加上 SSL／TLS 加密，是目前要求較高安全性時主流使用的通訊協定</li>
-<li>補充：其他常見的通訊協定還有 FTP、WebSocket 等等</li>
+</ol>
+<h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><h4 id="Maven-Installation"><a href="#Maven-Installation" class="headerlink" title="Maven Installation"></a>Maven Installation</h4><ol>
+<li>左方［Maven］-&gt;［Installations］</li>
+<li>勾選列表中想要的 Maven<ul>
+<li>若是沒有……<ol>
+<li>點擊右方的［Add…］</li>
+<li>在「Installations home」輸入 Maven 的根目錄<ul>
+<li>不要選擇「bin」資料夾，要選的是根目錄、裡面有 <code>bin</code>、<code>conf</code>、<code>lib</code> 等等資料夾的那一層。</li>
 </ul>
 </li>
-</ul>
-<br>
-
-<h2 id="HTTP-的版本"><a href="#HTTP-的版本" class="headerlink" title="HTTP 的版本"></a>HTTP 的版本</h2><ul>
-<li>1.1<ul>
-<li>HTTP 中目前最主流、基礎的版本，網站伺服器、網頁瀏覽器都支持</li>
-<li>1999 年成為正式標準</li>
-<li>RFC 標準文件<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-</li>
-<li>2014 年，RFC 7230 ~ 7235 取代了 RFC 2616<ul>
-<li>拆分為多篇，做更詳細的說明</li>
-<li>也有一些更新</li>
-</ul>
-</li>
-<li>2022 年，RFC 9110 ~ 9112 取代了 RFC 7230 ~ 7235</li>
-</ul>
-</li>
-<li>2<ul>
-<li>於 2015 年的 RFC 7540 發布、成為標準</li>
-<li>改善性能，比如引進 HPACK 壓縮 Header 的容量、加快傳輸速度<ul>
-<li>HPACK 標準寫在 <a class="link"   target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/html/rfc7541" >RFC 7541<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-</li>
-<li>2022 年，<a class="link"   target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/html/rfc9113" >RFC 9113<i class="fas fa-external-link-alt"></i></a> 取代了 RFC 7540</li>
-</ul>
-</li>
-<li>3<ul>
-<li>於 2022 年的 <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9114" >RFC 9114<i class="fas fa-external-link-alt"></i></a> 發布、成為標準</li>
-<li>進一步改善性能與安全性</li>
-<li>基於 QUIC</li>
-</ul>
+<li>在「Installations name」輸入能夠辨認這個 Maven 的名稱</li>
+<li>點擊［Finish］</li>
+</ol>
 </li>
 </ul>
-<br>
-
-<h2 id="推薦學習資源"><a href="#推薦學習資源" class="headerlink" title="推薦學習資源"></a>推薦學習資源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://notfalse.net/http-series">NotFalse 技術客<br>HTTP 教學</a><ul>
-<li>易讀、基礎，涵蓋許多方面</li>
+</li>
+</ol>
+<h4 id="Maven-settings"><a href="#Maven-settings" class="headerlink" title="Maven settings"></a>Maven settings</h4><p>　　我之所以想設定這個，是因為我有特別設定 Maven Local Repository 的路徑、寫在我使用的 Maven 裡的 <code>settings.xml</code>。</p>
+<ol>
+<li>左方［Maven］-&gt;［User Settings］</li>
+<li>在「User Settings」輸入設定檔的路徑<ul>
+<li>選擇 <code>（根目錄）\conf\settings.xml</code></li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/schaepher/p/12831623.html">schaepher - 博客园<br>【RFC】HTTP&#x2F;1.1 系列（7230 - 7235）</a><ul>
-<li>翻譯為簡中和加上一些理解說明</li>
-<li>目前只寫到 RFC 7231 的 Response Status Codes，但還是值得把在此之前的東西看過、學起來</li>
+<li>確認「Local Repository」顯示的是自己特別設定的路徑</li>
+</ol>
+<h2 id="設定介面"><a href="#設定介面" class="headerlink" title="設定介面"></a>設定介面</h2><h3 id="調整視窗尺寸"><a href="#調整視窗尺寸" class="headerlink" title="調整視窗尺寸"></a>調整視窗尺寸</h3><ul>
+<li>把左邊的「Project Explorer」寬度調窄、到上方工具列剛好不會換行</li>
+<li>把下面的「Console」高度調整到能顯示 4 行</li>
+</ul>
+<h3 id="設定「Project-Explorer」的-package-顯示設定"><a href="#設定「Project-Explorer」的-package-顯示設定" class="headerlink" title="設定「Project Explorer」的 package 顯示設定"></a>設定「Project Explorer」的 package 顯示設定</h3><ol>
+<li>點擊「Project Explorer」字樣右邊工具欄的［View Menu］（垂直的三個點）</li>
+<li>［Package Presentation］選擇［Hierarchical］<ul>
+<li>Hierarchical 會把 package 以階層顯示。</li>
+<li>預設的 Flat，所有 package 都會顯示在同一層、並顯示完整的一長串 package 名稱。</li>
 </ul>
 </li>
-<li>RFC 7230 ~ 7235<ul>
-<li>雖然很硬……，但如果能吸收，直接去讀標準文件最紮實</li>
+</ol>
+<h3 id="儲存-Perspective-設定"><a href="#儲存-Perspective-設定" class="headerlink" title="儲存 Perspective 設定"></a>儲存 Perspective 設定</h3><ol>
+<li>在右上角的目前 Perspective［Java EE］上按『右鍵』<ul>
+<li>在搜尋放大鏡按鈕右邊</li>
 </ul>
 </li>
-</ul>
-<br>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li>ChatGPT</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://notfalse.net/33/http1_1" >HTTP&#x2F;1.1 - 超文本傳輸協定 (Hypertext Transfer Protocol) - NotFalse 技術客<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/schaepher/p/12831623.html" >【RFC】HTTP&#x2F;1.1 系列（7230 - 7235） - schaepher - 博客园<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://blog.gslin.org/archives/2014/06/07/4736/http1-1-%E7%9A%84%E6%9B%B4%E6%96%B0/" >HTTP&#x2F;1.1 的更新 – Gea-Suan Lin’s BLOG<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<br>
-
-<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://hackmd.io/@cnsrl/RFC" >如何閱讀 RFC 文件 - HackMD<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/@chester.yw.chu/http-3-%E5%82%B3%E8%BC%B8%E5%8D%94%E8%AD%B0-quic-%E7%B0%A1%E4%BB%8B-5f8806d6c8cd" >HTTP&#x2F;3 傳輸協議 - QUIC 原理簡介 | by Chester Chu | Medium<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://aws.amazon.com/tw/compare/the-difference-between-ssl-and-tls/" >SSL 與 TLS 的比較 – 通訊協定之間的差異 – AWS<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<br>
-
-<h2 id="後記閒聊"><a href="#後記閒聊" class="headerlink" title="後記閒聊"></a>後記閒聊</h2><p>　　某次面試遇到一位面試官、是技術主管，拿著我的考卷一題一題問我為何這樣作答、延伸再問一些問題、並告訴我哪邊有錯或是可以再設計得更好。那次學到了許多技術知識、也得到一些學習方向的想法，滿喜歡那樣的氛圍、很感謝他。<br>　　延伸的問題中，有一題是「Request Header 中有什麼？」，我當時沒能答出「通訊協定（HTTP）」這個重點。之後我又寄了一封 email 感謝他、並再向他請教這個問題，他還回信給我、分享了這個連結：<a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2616#page-35" >RFC 2616: Hypertext Transfer Protocol – HTTP&#x2F;1.1<i class="fas fa-external-link-alt"></i></a>，指向「Request」章節那頁。<br>　　感到非常感激，於是決定趁著這份心情、把這些探索整理成筆記。  </p>
-<h4 id="2025-01-24-更新"><a href="#2025-01-24-更新" class="headerlink" title="2025&#x2F;01&#x2F;24 更新"></a>2025&#x2F;01&#x2F;24 更新</h4><p>　　在研究 Tomcat 時，在 <a class="link"   target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications#Specifications-HTTP,HTTP/2" >Specifications - Apache Tomcat - Apache Software Foundation<i class="fas fa-external-link-alt"></i></a> 發現竟然 2022 年還有更新版的 RFC 文件……</p>
+<li>選擇［Save As…］</li>
+<li>輸入認得的名稱</li>
+<li>點擊［Save］</li>
+</ol>
+<h3 id="設定編輯區文字縮放"><a href="#設定編輯區文字縮放" class="headerlink" title="設定編輯區文字縮放"></a>設定編輯區文字縮放</h3><ol>
+<li>點開任一個檔案</li>
+<li>用『Ctrl』+『&#x3D;』與『Ctrl』+『-』縮放</li>
+</ol>
+<h2 id="輸出-Preference-設定"><a href="#輸出-Preference-設定" class="headerlink" title="輸出 Preference 設定"></a>輸出 Preference 設定</h2><ol>
+<li>上方工具列的［File］-&gt;［Export］</li>
+<li>選擇［General］-&gt;［Preferences］，點擊［Next］</li>
+<li>勾選［Export all］</li>
+<li>在「To preference file」輸入輸出檔案的路徑</li>
+<li>點擊［Finish］</li>
+</ol>
+<h3 id="匯入-Preference-設定"><a href="#匯入-Preference-設定" class="headerlink" title="匯入 Preference 設定"></a>匯入 Preference 設定</h3><ol>
+<li>上方工具列的［File］-&gt;［Import］</li>
+<li>選擇［General］-&gt;［Preferences］，點擊［Next］</li>
+<li>在「From preference file」輸入 epf 檔的路徑</li>
+<li>點擊［Finish］後，重啟 Eclipse</li>
+<li>選擇自己設定好的 Perspective</li>
+</ol>
 <br>
                     
                 </div>
@@ -461,11 +454,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Web/">網路</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/HTTP/">HTTP</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Eclipse/">Eclipse</a>
                                     </li>
                                 
                             </ul>
@@ -481,31 +470,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/blog/2025/01/tips-npm-install-location/"
-                                   title="【教學：環境】設定 npm 的全域下載位置與環境變數"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【教學：環境】設定 npm 的全域下載位置與環境變數</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/blog/2024/12/ramble-FileListingAndComparing-init/"
-                                   title="【閒聊】把「檔案列表與比對工具」丟上 GitHub"
+                                   href="/blog/2025/01/note-python-general/"
+                                   title="【筆記：Python】對 Python 的初步認識"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【閒聊】把「檔案列表與比對工具」丟上 GitHub</span>
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：Python】對 Python 的初步認識</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -533,7 +506,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-RFC-%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-text">什麼是 RFC 文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP%EF%BC%9F"><span class="nav-text">什麼是 HTTP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">HTTP 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%96%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-text">推薦學習資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2025-01-24-%E6%9B%B4%E6%96%B0"><span class="nav-text">2025&#x2F;01&#x2F;24 更新</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-Preference"><span class="nav-text">設定 Preference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%97%E8%89%B2%E4%B8%BB%E9%A1%8C"><span class="nav-text">暗色主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%EF%BC%88Auto-Complete%EF%BC%89"><span class="nav-text">自動完成（Auto-Complete）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK"><span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven-Installation"><span class="nav-text">Maven Installation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven-settings"><span class="nav-text">Maven settings</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E4%BB%8B%E9%9D%A2"><span class="nav-text">設定介面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%BF%E6%95%B4%E8%A6%96%E7%AA%97%E5%B0%BA%E5%AF%B8"><span class="nav-text">調整視窗尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E3%80%8CProject-Explorer%E3%80%8D%E7%9A%84-package-%E9%A1%AF%E7%A4%BA%E8%A8%AD%E5%AE%9A"><span class="nav-text">設定「Project Explorer」的 package 顯示設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%84%B2%E5%AD%98-Perspective-%E8%A8%AD%E5%AE%9A"><span class="nav-text">儲存 Perspective 設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%B7%A8%E8%BC%AF%E5%8D%80%E6%96%87%E5%AD%97%E7%B8%AE%E6%94%BE"><span class="nav-text">設定編輯區文字縮放</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%B8%E5%87%BA-Preference-%E8%A8%AD%E5%AE%9A"><span class="nav-text">輸出 Preference 設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5-Preference-%E8%A8%AD%E5%AE%9A"><span class="nav-text">匯入 Preference 設定</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -664,7 +637,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-RFC-%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-text">什麼是 RFC 文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP%EF%BC%9F"><span class="nav-text">什麼是 HTTP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">HTTP 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%96%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-text">推薦學習資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2025-01-24-%E6%9B%B4%E6%96%B0"><span class="nav-text">2025&#x2F;01&#x2F;24 更新</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-Preference"><span class="nav-text">設定 Preference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%97%E8%89%B2%E4%B8%BB%E9%A1%8C"><span class="nav-text">暗色主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%EF%BC%88Auto-Complete%EF%BC%89"><span class="nav-text">自動完成（Auto-Complete）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK"><span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven-Installation"><span class="nav-text">Maven Installation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven-settings"><span class="nav-text">Maven settings</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E4%BB%8B%E9%9D%A2"><span class="nav-text">設定介面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%BF%E6%95%B4%E8%A6%96%E7%AA%97%E5%B0%BA%E5%AF%B8"><span class="nav-text">調整視窗尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E3%80%8CProject-Explorer%E3%80%8D%E7%9A%84-package-%E9%A1%AF%E7%A4%BA%E8%A8%AD%E5%AE%9A"><span class="nav-text">設定「Project Explorer」的 package 顯示設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%84%B2%E5%AD%98-Perspective-%E8%A8%AD%E5%AE%9A"><span class="nav-text">儲存 Perspective 設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%B7%A8%E8%BC%AF%E5%8D%80%E6%96%87%E5%AD%97%E7%B8%AE%E6%94%BE"><span class="nav-text">設定編輯區文字縮放</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%B8%E5%87%BA-Preference-%E8%A8%AD%E5%AE%9A"><span class="nav-text">輸出 Preference 設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5-Preference-%E8%A8%AD%E5%AE%9A"><span class="nav-text">匯入 Preference 設定</span></a></li></ol></li></ol>
     </div>
 </div>
 
