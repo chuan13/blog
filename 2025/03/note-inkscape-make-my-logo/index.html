@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="programming, tech, 程式, 技術">
+    <meta name="keywords" content="Inkscape, Logo">
     <meta name="description" content="各方面的學習筆記，以及一些些閒談。">
     <meta name="author" content="Chuan">
     
     <title>
         
-            【閒聊】把「檔案列表與比對工具」丟上 GitHub |
+            【筆記：Inkscape】基礎形狀操作、堆疊出我的 Logo～ |
         
         Chuan&#39;s Mindspace
     </title>
@@ -257,7 +257,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        【閒聊】把「檔案列表與比對工具」丟上 GitHub
+                        【筆記：Inkscape】基礎形狀操作、堆疊出我的 Logo～
                     </div>
                 
 
@@ -279,13 +279,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024/12/22 23:48</span>
+                <span class="datetime">2025/03/15 19:39</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Mon Dec 23 2024 00:49:04 GMT+0800">2024/12/23 00:49</span>
+                    <span class="datetime" data-updated="Sat Mar 15 2025 19:45:24 GMT+0800">2025/03/15 19:45</span>
                 </span>
             
         
@@ -294,7 +294,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/blog/categories/ramble/">閒聊</a></li>
+                            <li class="category-item"><a href="/blog/categories/Inkscape/">Inkscape</a></li>
                         
                     
                 </ul>
@@ -305,7 +305,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/FileListingAndComparing/">檔案列表與比對工具</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Inkscape/">Inkscape</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/blog/tags/Logo/">Logo</a></li>
                         
                     
                 </ul>
@@ -330,63 +333,188 @@
                     
 
                     
-                         <p>　　寫了一個自己要用的小工具——「檔案列表與比對工具」，作為作品集、丟上 GitHub 好了……不過這樣就必須要把很多地方改善了 www。</p>
+                         <p>　　一直很想有一個像樣的 Logo，今天心血來潮、忍不住載了 Inkscape 學一下、堆疊出我目前想要的 Logo 了，耶～</p>
 <span id="more"></span>
+<p><img   src="https://chuan13.github.io/ImageHosting/20250315-note-inkscape-make-my-logo/Chuan_favicon.svg"  alt="Chuan_favicon.svg"><br><br></p>
+<h2 id="Inkscape-是什麼？"><a href="#Inkscape-是什麼？" class="headerlink" title="Inkscape 是什麼？"></a>Inkscape 是什麼？</h2><ul>
+<li>向量式圖像編輯軟體<ul>
+<li>「向量式」和「點陣式」不同，但我懶得在這裡詳細比較。</li>
+<li>點陣式圖像編輯領域的工具軟體<ul>
+<li>最知名的是 Adobe PhotoShop</li>
+<li>我則都用免費的 <a class="link"   target="_blank" rel="noopener" href="https://www.photopea.com/" >PhotoPea<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在這個領域，較知名的是 Adobe Illustrator</li>
+<li>Inkscape 是免費開源的，功能也足夠強大（至少對於外行的我而言）</li>
+</ul>
 <br>
 
-<h2 id="檔案列表與比對工具"><a href="#檔案列表與比對工具" class="headerlink" title="檔案列表與比對工具"></a>檔案列表與比對工具</h2><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/chuan13/FileListingAndComparing" >GitHub repo<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/chuan13/FileListingAndComparing/tree/62663913e3bbb35c361bc1b34a1a122e13140ae5" >目前進度<i class="fas fa-external-link-alt"></i></a></li>
+<h2 id="官方網站與下載"><a href="#官方網站與下載" class="headerlink" title="官方網站與下載"></a>官方網站與下載</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://inkscape.org/zh-hant/" >首頁 | Inkscape<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
-<h3 id="開發動機"><a href="#開發動機" class="headerlink" title="開發動機"></a>開發動機</h3><p>　　最近和家人在整理家裡的檔案庫……，之前備份來、備份去，然後又改來改去，導致有些資料夾內大致相同、但哪裡有一點點不同。<br>　　人工找感覺好麻煩，於是想說來寫個程式把那些不共通的部分抓出來吧。</p>
-<h3 id="目前做到哪了？"><a href="#目前做到哪了？" class="headerlink" title="目前做到哪了？"></a>目前做到哪了？</h3><p>　　其實我是先開發了「列表」功能，本來想根據列出來的 txt 檔再做比對；但是後來做「比對」功能時，想說這樣反而要跑兩次 IO，不如在讀取資料夾內資訊時順便搞定。  </p>
-<p>　　剛剛為了要丟上 GitHub，才開始開新專案（本來只是在自己的練習專案裡開個 package 寫），重新整理一下程式結構；想說「列表」功能乾脆等之後程式碼重構完再來整理好了，於是現在放上去的只有「比對」功能。</p>
-<h3 id="印象深刻的挑戰"><a href="#印象深刻的挑戰" class="headerlink" title="印象深刻的挑戰"></a>印象深刻的挑戰</h3><ul>
-<li><code>isDirectory()</code> 為 <code>true</code>、但是 <code>listFiles()</code> 的結果不是空陣列而是 <code>null</code>？<ul>
-<li>理論上，即使是空的資料夾，<code>listFiles()</code> 的回傳結果應該會是空陣列（<code>length</code> 為 <code>0</code>）、而不會是 <code>null</code></li>
-<li>發現是「$RECYCLE.BIN」這種系統資料夾……；好吧，記起來，要多做這種判斷。</li>
-</ul>
-</li>
-</ul>
-<h3 id="接下來想做什麼？"><a href="#接下來想做什麼？" class="headerlink" title="接下來想做什麼？"></a>接下來想做什麼？</h3><p>　　都寫在 <code>README.md</code> 的「待開發」了。</p>
+<br>
+
+<h2 id="基礎準備"><a href="#基礎準備" class="headerlink" title="基礎準備"></a>基礎準備</h2><p>開好專案後，把以下的視窗、設定等等弄好：</p>
 <ul>
-<li>想搬去其他電腦用，所以還是得做介面、打包</li>
-<li>如果能的話，也想做給家人使用——那樣肯定是要做 GUI 了。</li>
-<li><em>把輸出邏輯交給另一個執行緒</em>  <ul>
-<li>現在輸出成 txt 檔的實現方式是類似於把每一行東西放進一個 List 裡面，最後交給輸出 method 去跑 for-each</li>
-<li>後來想優化一些小地方，發現沒辦法即時寫入輸出檔……<ul>
-<li>想在程式一開始運行時就把時間記錄下來，這樣才能知道這次比對共跑了多久</li>
-<li>如果有發生錯誤，像是無法讀取等等，也想寫進輸出檔、類似 log 的概念</li>
+<li>圖層與物件<ul>
+<li>上方工具列［圖層］-&gt;［圖層與物件］</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></li>
 </ul>
 </li>
-<li>如何實現？<ul>
-<li>問 ChatGPT、得知了 <code>BlockingQueue</code> 這個好東西，就像是 Message Queue 的概念</li>
-<li>實作還有分 <code>ArrayBlockingQueue</code> 和 <code>LinkedBlockingQueue</code><ul>
-<li>不過不像 List 那樣、在增刪時會有時間複雜度的差距，在這裡都是 O(1)<ul>
-<li><code>ArrayBlockingQueue</code> 以「Circular Array」實現，並有兩個索引指針分別指向頭尾兩端</li>
-<li><code>LinkedBlockingQueue</code> 以雙向鏈表實現，每個元素會包含上一個元素和下一個元素的指標；也有兩個索引指針分別指向頭尾兩端</li>
+<li>填充與邊框<ul>
+<li>上方工具列［物件］-&gt;［填充與邊框］</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></li>
 </ul>
 </li>
-<li>比較<ul>
-<li><code>ArrayBlockingQueue</code><ul>
-<li>必須在宣告時固定大小，如果內容已滿、會導致 Producer 阻塞</li>
+<li>對齊與分佈<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd></li>
 </ul>
 </li>
-<li><code>LinkedBlockingQueue</code><ul>
-<li>因為是鏈表、占用記憶體會較大一點點</li>
-<li>可以不固定大小，就不用怕 Producer 速度較快、被阻塞</li>
+<li>物件屬性<ul>
+<li>上方工具列［物件］-&gt;［物件屬性］</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd></li>
 </ul>
+</li>
+<li>格線<ul>
+<li>顯示格線<ul>
+<li>上方工具列［檢視］-&gt;［頁面格線］</li>
+<li><kbd>Shift</kbd> + <kbd>#</kbd></li>
+</ul>
+</li>
+<li>設定格線<ol>
+<li>打開「文件屬性」<ul>
+<li>上方工具列［檔案］-&gt;［文件屬性］</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></li>
+</ul>
+</li>
+<li>切換到［格線］頁籤</li>
+<li>建立與修改網格的間隙、顏色、主要格線的間隔數等等</li>
+</ol>
+</li>
+<li>操作時貼齊格線<ol>
+<li>先打開「貼齊工具列」<ul>
+<li>上方工具列［檢視］-&gt;［顯示／隱藏］-&gt;［貼齊工具列］</li>
+</ul>
+</li>
+<li>按下貼齊工具列上的［貼齊］按鈕以切換開關</li>
+</ol>
 </li>
 </ul>
 </li>
 </ul>
+<br>
+
+<h2 id="基礎操作"><a href="#基礎操作" class="headerlink" title="基礎操作"></a>基礎操作</h2><ul>
+<li>存檔<ul>
+<li><kbd>Ctrl</kbd> + <kbd>S</kbd></li>
+</ul>
 </li>
+<li>放大／縮小<ul>
+<li><kbd>Ctrl</kbd> + <kbd>滾輪</kbd></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="選取工具"><a href="#選取工具" class="headerlink" title="選取工具"></a>選取工具</h2><ul>
+<li>在左方工具箱由上往下數第 1 個</li>
+<li>在畫布上點擊，可以選中物件<ul>
+<li>如果想選中物件，也可以在「圖層與物件」視窗選取</li>
+</ul>
+</li>
+<li>在同個物件上再次點擊，可以切換操作模式<ul>
+<li>比例縮放／旋轉控制點</li>
+</ul>
+</li>
+<li>按住 <kbd>Shift</kbd> 點擊，可以同時選中多個物件</li>
+<li>也可以拖曳出一個矩形範圍，一次選中範圍內在此圖層的所有物件</li>
+<li>選取後，可以在上方的工具控制列對此物件操作<ul>
+<li>90º 旋轉、翻轉、移動重疊層（不是圖層）</li>
+<li>改變位置座標、大小（寬、高）<ul>
+<li>在這裡備註一下，如果把邊框取消掉，大小會跟著變小一點點</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <br>
+
+<h2 id="矩形工具"><a href="#矩形工具" class="headerlink" title="矩形工具"></a>矩形工具</h2><ul>
+<li>在左方工具箱由上往下數第 4 個</li>
+<li>拖曳做出矩形，按住 <kbd>Ctrl</kbd> 會限制為正方形</li>
+<li>圓角<ul>
+<li>「物件屬性」視窗的「頂點半徑」</li>
+<li>選取工具連點兩下後，拖曳角落的圓點</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="橢圓形／弧形工具"><a href="#橢圓形／弧形工具" class="headerlink" title="橢圓形／弧形工具"></a>橢圓形／弧形工具</h2><ul>
+<li>在左方工具箱由上往下數第 5 個</li>
+<li>拖曳做出橢圓形，按住 <kbd>Ctrl</kbd> 會限制為圓形</li>
+<li>弦形與不完整的橢圓形<ul>
+<li>選取工具連點兩下後，拖曳邊線上的圓點</li>
+<li>往橢圓形的中心拖曳 -&gt; 弦型</li>
+<li>往橢圓形的外面拖曳 -&gt; 不完整的橢圓形</li>
+<li>「物件屬性」視窗有個按鈕，點擊可以變回完整的橢圓形</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h2><ul>
+<li>用選取工具選中多個物件後，在「對齊與分佈」視窗可以對齊排列</li>
+<li>［格狀］頁籤<ul>
+<li>「列」和「欄」控制要橫的排還是直的排</li>
+<li>「對齊」控制要以哪一邊對齊</li>
+<li>［設定間距］就是設定間距</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="組合形狀"><a href="#組合形狀" class="headerlink" title="組合形狀"></a>組合形狀</h2><ul>
+<li>用選取工具選中多個物件後</li>
+</ul>
+<ol>
+<li>路徑<ul>
+<li>在上方工具列［路徑］可以取得以某條件結合後的物件</li>
+</ul>
+</li>
+<li>形狀建立工具<ul>
+<li>在左方工具箱由上往下數第 3 個</li>
+<li>對於已經完全接起來、或是重疊的物件，可以組合為一個形狀</li>
+<li>點擊每個部分、設定要不要保留</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<h2 id="鋼筆工具"><a href="#鋼筆工具" class="headerlink" title="鋼筆工具"></a>鋼筆工具</h2><ul>
+<li>在左方工具箱由上往下數第 9 個</li>
+<li>向量式繪圖軟體中堪稱最強的工具，但是真的好難學……<br><br>我還是不會用，所以就不寫了。</li>
+<li>已經完成線條後，可以使用「節點工具」修改剛剛物件的節點<ul>
+<li>在左方工具箱由上往下數第 2 個</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li>ChatGPT</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://sidonie.ca/inkscape/#5_%E6%A9%A2%E5%9C%93%E5%BD%A2%EF%BC%8F%E5%BC%A7%E5%BD%A2%E5%B7%A5%E5%85%B7" >Inkscape 教學－15分鐘學會，最好用免費向量繪圖軟體（繁體中文版） | 歐的樂星球 O’s Fun Planet<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=c7-fW6jXFdU" >Inkscape課程： 鋼筆工具(貝茲曲線)丨#inkscape #電腦繪圖 #向量 #自學丨Teacher Joe’s Classroom - YouTube<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<h2 id="後記閒聊"><a href="#後記閒聊" class="headerlink" title="後記閒聊"></a>後記閒聊</h2><p>　　原本腦袋裡已經有這個設計的想法了、但是不知道怎麼實作出來。手繪或是用小畫家鼠繪，肯定做不出這麼漂亮的弧形；研究 LibreOffice Impress（簡報工具）半天、找不到怎麼做四分之一圓，而且組起來可能看起來也怪怪的。  </p>
+<p>　　今天先是想到，如果我先手繪簡單的畫個草圖、有辦法請生成式 AI 畫出來嗎？又想到，現在專精於圖像的生成式 AI 這麼多，一定有人做專門設計 Logo 的吧？<br>　　去查了一下後者，還真的有，但都只能輸入品牌名稱、產業類型、想要的元素等等資訊，感覺還是 AI 在主導設計；而前者我還沒試，先問了 ChatGPT 怎麼畫弧線，得到「Inkscape」這個答案。</p>
+<p>　　對於簡單的圖像設計，我也是有一點興趣——想著那乾脆去查一下怎麼用好了，於是找到了這篇好棒的基礎教學文章（<a class="link"   target="_blank" rel="noopener" href="https://sidonie.ca/inkscape/#5_%E6%A9%A2%E5%9C%93%E5%BD%A2%EF%BC%8F%E5%BC%A7%E5%BD%A2%E5%B7%A5%E5%85%B7" >Inkscape 教學－15分鐘學會，最好用免費向量繪圖軟體（繁體中文版） | 歐的樂星球 O’s Fun Planet<i class="fas fa-external-link-alt"></i></a>）、看起來好簡單，所以就馬上下載來玩啦——<br>幾個小時就做出大致符合我想像樣子的 Logo、並能夠寫出這篇筆記了，耶～</p>
 
                     
                 </div>
@@ -399,7 +527,11 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/FileListingAndComparing/">檔案列表與比對工具</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Inkscape/">Inkscape</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/blog/tags/Logo/">Logo</a>
                                     </li>
                                 
                             </ul>
@@ -415,31 +547,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/blog/2024/12/note-http1-1-and-rfc/"
-                                   title="【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【筆記：網路】HTTP 1.1 協議與它的 RFC 標準文件</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/blog/2024/12/tips-hexo-init/"
-                                   title="【教學：Hexo】建立 Hexo 部落格（施工中）"
+                                   href="/blog/2025/01/note-github-new-repo/"
+                                   title="【筆記：GitHub】將本地的 Git repo 放上 GitHub"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【教學：Hexo】建立 Hexo 部落格（施工中）</span>
+                                        <span class="post-nav-title-item text-ellipsis">【筆記：GitHub】將本地的 Git repo 放上 GitHub</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -467,7 +583,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7"><span class="nav-text">檔案列表與比對工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E7%99%BC%E5%8B%95%E6%A9%9F"><span class="nav-text">開發動機</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%81%9A%E5%88%B0%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-text">目前做到哪了？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E6%8C%91%E6%88%B0"><span class="nav-text">印象深刻的挑戰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%E6%83%B3%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">接下來想做什麼？</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inkscape-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Inkscape 是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%B6%B2%E7%AB%99%E8%88%87%E4%B8%8B%E8%BC%89"><span class="nav-text">官方網站與下載</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E6%BA%96%E5%82%99"><span class="nav-text">基礎準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E6%93%8D%E4%BD%9C"><span class="nav-text">基礎操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E5%8F%96%E5%B7%A5%E5%85%B7"><span class="nav-text">選取工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E5%BD%A2%E5%B7%A5%E5%85%B7"><span class="nav-text">矩形工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A9%A2%E5%9C%93%E5%BD%A2%EF%BC%8F%E5%BC%A7%E5%BD%A2%E5%B7%A5%E5%85%B7"><span class="nav-text">橢圓形／弧形工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%88%97"><span class="nav-text">排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%84%E5%90%88%E5%BD%A2%E7%8B%80"><span class="nav-text">組合形狀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8B%BC%E7%AD%86%E5%B7%A5%E5%85%B7"><span class="nav-text">鋼筆工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
     </div>
 </div>
 
@@ -598,7 +714,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E5%88%97%E8%A1%A8%E8%88%87%E6%AF%94%E5%B0%8D%E5%B7%A5%E5%85%B7"><span class="nav-text">檔案列表與比對工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E7%99%BC%E5%8B%95%E6%A9%9F"><span class="nav-text">開發動機</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%81%9A%E5%88%B0%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-text">目前做到哪了？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E6%8C%91%E6%88%B0"><span class="nav-text">印象深刻的挑戰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%E6%83%B3%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">接下來想做什麼？</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inkscape-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">Inkscape 是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%B6%B2%E7%AB%99%E8%88%87%E4%B8%8B%E8%BC%89"><span class="nav-text">官方網站與下載</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E6%BA%96%E5%82%99"><span class="nav-text">基礎準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E6%93%8D%E4%BD%9C"><span class="nav-text">基礎操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E5%8F%96%E5%B7%A5%E5%85%B7"><span class="nav-text">選取工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E5%BD%A2%E5%B7%A5%E5%85%B7"><span class="nav-text">矩形工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A9%A2%E5%9C%93%E5%BD%A2%EF%BC%8F%E5%BC%A7%E5%BD%A2%E5%B7%A5%E5%85%B7"><span class="nav-text">橢圓形／弧形工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%88%97"><span class="nav-text">排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%84%E5%90%88%E5%BD%A2%E7%8B%80"><span class="nav-text">組合形狀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8B%BC%E7%AD%86%E5%B7%A5%E5%85%B7"><span class="nav-text">鋼筆工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="nav-text">延伸閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98%E9%96%92%E8%81%8A"><span class="nav-text">後記閒聊</span></a></li></ol>
     </div>
 </div>
 
